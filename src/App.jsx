@@ -4,27 +4,27 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Media from './pages/Media'
-import Offering from './pages/Offering'
+import Products from './pages/Products' 
 import Contact from './pages/Contact'
-import Fin from './pages/Fin'
+import CompanyOverview from './pages/CompanyOverview' // New component
+
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-       
-        <Navbar />  {/* Navbar at the top */}
-        <main className="flex-grow">  {/* Main content */}
+        <Navbar />  
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/offering" element={<Offering />} />
-            <Route path="/finance" element={<Fin />} />
+            <Route path="/company-overview" element={<CompanyOverview />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/media" element={<Media />} />
             <Route path="/contact" element={<Contact />} />
-          </Routes>
+           </Routes>
         </main>
-        <Footer />  {/* Footer at the bottom */}
+        <Footer />  
       </div>
     </Router>
   )

@@ -69,31 +69,27 @@ function Home() {
 
   const cards = [
     {
-      title: "Offering",
+      title: "Products",
       description: "Our commitment to sustainable business practices.",
       buttonText: "Find out more →",
-      image: "/offering.jpg",
-      link: "/offering",
+      link: "/products",
     },
     {
       title: "Media",
       description: "Join our team and grow with us.",
       buttonText: "Explore Careers →",
-      image: "/media.jpg",
       link: "/media",
     },
     {
       title: "Our Shareholders",
       description: "Building long-term value for our stakeholders.",
       buttonText: "Meet Shareholders →",
-      image: "/shareholders.jpg",
       link: "/shareholders",
     },
     {
       title: "What is Crystara",
       description: "Access reports, earnings, and financial data.",
       buttonText: "View Reports →",
-      image: "/whatcrystara.jpg",
       link: "/about",
     },
   ];
@@ -276,190 +272,456 @@ function Home() {
         </Swiper>
       </motion.div>
 
-  <div className="w-full max-w-7xl mx-auto mt-12 pt-16">
-  {/* About Us Section */}
-  <section className="w-full px-10 mt-12 mb-16">
-    <h2 className="text-4xl font-bold text-purple-700 text-center mt-12 mb-12">About Us</h2>
+      <div className="relative w-full min-h-screen">
+  {/* Parallax Background */}
+  <div className="fixed inset-0 -z-10">
+    <img
+      src="/sugarcane/sugarcane2.jpg"
+      alt="Sugarcane Field"
+      className="w-full h-full object-cover transform scale-105"
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-purple-900/50 to-black/60" />
+  </div>
 
-    <motion.div
-      className="w-full flex flex-col items-center gap-8"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
-      {/* Video Section */}
+  {/* Main Content */}
+  <div className="w-full max-w-7xl mx-auto pt-24 pb-32 px-4 sm:px-6 lg:px-8">
+    <section className="w-full space-y-20">
+      {/* Section Header */}
       <motion.div
-      className="w-full flex flex-col md:flex-row items-center md:items-start gap-8"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-  {/* Video Section (Left) */}
-  <motion.div className="w-full md:w-1/2" variants={fadeInLeft}>
-    <video className="w-full h-64 md:h-96 rounded-lg" autoPlay loop muted playsInline>
-      <source src="aboutvideo.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-  </motion.div>
+        <h2 className="text-5xl font-extrabold text-center text-white mb-6">
+          <span className="bg-gradient-to-r from-purple-400 to-pink-300 bg-clip-text text-transparent">
+            About Crystara Sugar
+          </span>
+        </h2>
+        <p className="text-center text-purple-100 text-xl max-w-2xl mx-auto">
+          Crafting sweetness through sustainable innovation since 1995
+        </p>
+      </motion.div>
 
-  {/* Content Section (Right) */}
-  <motion.div
-    className="w-full md:w-1/2 bg-opacity-90 p-6 rounded-lg border-l-4 border-purple-700"
-    variants={fadeInRight}
-  >
-    <h3 className="text-2xl font-semibold text-purple-700 mb-4">Who We Are</h3>
-    <p className="text-gray-700 text-lg">
-          Welcome to Crystara Sugar Private Limited - Sharing Sweetness to the World. 
-          We humans have a special bond with sweetness. 
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-          in culpa qui officia deserunt mollit anim id est laborum."
-    </p>
-  </motion.div>
-</motion.div>
+      {/* Video & Story Section */}
+      <div className="grid lg:grid-cols-2 gap-12 items-center">
+        {/* Video Card */}
+        <motion.div
+          className="relative group"
+          variants={fadeInLeft}
+          initial="hidden"
+          whileInView="visible"
+        >
+          <div className="absolute inset-0 bg-purple-500/20 rounded-3xl transform -rotate-3 group-hover:rotate-0 transition-all" />
+          <video
+            className="w-full h-96 object-cover rounded-3xl shadow-2xl relative transform group-hover:-translate-y-2 transition-all"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="aboutvideo.mp4" type="video/mp4" />
+          </video>
+        </motion.div>
 
+        {/* Our Story Card */}
+        <motion.div
+          className="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/30"
+          variants={fadeInRight}
+          initial="hidden"
+          whileInView="visible"
+        >
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-purple-100 rounded-xl">
+              <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <h3 className="text-3xl font-bold text-purple-800">Our Legacy</h3>
+          </div>
+          <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            Established in 1995, Crystara Sugar has grown from a regional producer to an international leader 
+            in premium sugar products. With over 2 million tons of annual production capacity, we combine 
+            traditional farming wisdom with cutting-edge technology to deliver nature's purest sweetness.
+          </p>
+          <ul className="space-y-3 text-purple-900">
+            <li className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span>ISO 9001 Certified Quality Management</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span>Serving 25+ countries worldwide</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+              </svg>
+              <span>1,200+ dedicated employees</span>
+            </li>
+          </ul>
+        </motion.div>
+      </div>
+
+      {/* Values Section */}
+      <div className="grid md:grid-cols-3 gap-8">
+        <motion.div
+          className="bg-purple-800/90 backdrop-blur-md p-8 rounded-3xl text-white shadow-2xl"
+          variants={fadeInUp}
+        >
+          <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
+            <svg className="w-8 h-8 text-purple-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Sustainability First
+          </h4>
+          <p className="text-purple-100 leading-relaxed">
+            We've reduced water consumption by 40% through closed-loop systems and recycle 95% of by-products 
+            into renewable energy and animal feed.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-2xl"
+          variants={fadeInUp}
+        >
+          <h4 className="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-3">
+            <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            Quality Assurance
+          </h4>
+          <p className="text-gray-700 leading-relaxed">
+            Every batch undergoes 27 quality checks using AI-powered inspection systems and blockchain 
+            traceability from farm to table.
+          </p>
+        </motion.div>
+
+        <motion.div
+          className="bg-purple-600/90 backdrop-blur-md p-8 rounded-3xl text-white shadow-2xl"
+          variants={fadeInUp}
+        >
+          <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
+            <svg className="w-8 h-8 text-purple-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            Community Impact
+          </h4>
+          <p className="text-purple-100 leading-relaxed">
+            Empowering 15,000+ farmers through our Agri-Tech initiative, providing smart farming tools 
+            and fair-trade partnerships.
+          </p>
+        </motion.div>
+      </div>
 
       {/* Vision & Mission Section */}
-      <motion.div
-        className="w-full flex flex-col md:flex-row items-center md:items-start gap-8"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {/* Vision Section (Left) */}
+      <div className="grid lg:grid-cols-2 gap-12">
         <motion.div
-          className="w-full md:w-1/2 p-6 rounded-lg shadow-md border-l-4 border-purple-700"
+          className="bg-gradient-to-br from-purple-900 to-blue-900 p-8 rounded-3xl shadow-2xl text-white"
           variants={fadeInLeft}
         >
-          <h4 className="text-xl font-semibold text-purple-700 mb-2">Our Vision</h4>
-          <p className="text-gray-700 text-lg">
-            To be a global leader in sugar manufacturing, known for sustainability, quality, and innovation.
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-white/10 rounded-xl">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <h3 className="text-3xl font-bold">Our Vision</h3>
+          </div>
+          <p className="text-lg leading-relaxed text-purple-100 mb-6">
+            To redefine global sweetness by 2030 through carbon-neutral operations and AI-driven sustainable 
+            agriculture. We envision a world where every sugar crystal tells a story of environmental stewardship 
+            and social responsibility.
           </p>
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="w-3 h-3 bg-purple-400 rounded-full" />
+              <span>100% Renewable Energy by 2025</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-3 h-3 bg-purple-400 rounded-full" />
+              <span>Zero Waste Certification by 2026</span>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Mission Section (Right) */}
         <motion.div
-          className="w-full md:w-1/2 p-6 rounded-lg shadow-md border-l-4 border-purple-700"
+          className="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl"
           variants={fadeInRight}
         >
-          <h4 className="text-xl font-semibold text-purple-700 mb-2">Our Mission</h4>
-          <p className="text-gray-700 text-lg">
-            To provide high-quality sugar products while maintaining eco-friendly production processes.
+          <div className="flex items-center gap-4 mb-6">
+            <div className="p-3 bg-purple-100 rounded-xl">
+              <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <h3 className="text-3xl font-bold text-purple-800">Our Mission</h3>
+          </div>
+          <p className="text-lg leading-relaxed text-gray-700 mb-6">
+            To continuously innovate in sustainable sugar production while maintaining the highest quality standards. 
+            We commit to:
           </p>
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl">
+              <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">
+                01
+              </div>
+              <span>Developing 100% biodegradable packaging by 2024</span>
+            </div>
+            <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl">
+              <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">
+                02
+              </div>
+              <span>Tripling farmer income through precision agriculture</span>
+            </div>
+          </div>
         </motion.div>
-      </motion.div>
-    </motion.div>
-  </section>
+      </div>
+    </section>
+  </div>
 </div>
 
-  {/* Company Overview Section */}
-  <section className="w-full px-10 py-16 mt-12">
-  <h2 className="text-4xl font-bold text-purple-700 text-center mt-12 mb-12">Company Overview</h2>
+<section className="relative w-full py-8 md:py-24">
+  {/* Background Image and Overlay */}
+  <div className="absolute inset-0 -z-10">
+    <div className="absolute inset-0 bg-black/50" /> {/* Dark overlay */}
+  </div>
 
-  <div className="p-8 rounded-2xl">
-    <div className="flex flex-col md:flex-row items-center justify-between">
-      
-      {/* Overview Text */}
+  {/* Content Container */}
+  <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Heading */}
+    <motion.h2
+      className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-16"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <span className="bg-gradient-to-r from-purple-400 to-pink-300 bg-clip-text text-transparent">
+        Company Overview
+      </span>
+    </motion.h2>
+
+    {/* Content Grid */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      {/* Text Content */}
       <motion.div
-        className="w-full md:w-1/2 text-left"
+        className="bg-white/95 backdrop-blur-xl p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/30"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInLeft}
       >
-        <p className="text-gray-700 text-lg px-2 mb-6">
-          Welcome to Crystara Sugar Private Limited - Sharing Sweetness to the World. 
-          We humans have a special bond with sweetness.
-          Welcome to Crystara Sugar Private Limited - Sharing Sweetness to the World. 
-          We humans have a special bond with sweetness.
-    
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor 
-          in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-          in culpa qui officia deserunt mollit anim id est laborum."
+        <h3 className="text-xl sm:text-2xl md:text-2xl font-bold text-purple-700 mb-4 sm:mb-5 md:mb-6">
+          Sharing Sweetness to the World
+        </h3>
+        <p className="text-gray-700 text-base sm:text-lg md:text-lg leading-relaxed mb-4 sm:mb-5 md:mb-6">
+          Welcome to Crystara Sugar Private Limited, where sweetness meets sustainability. 
+          Established in 1995, we have grown into a global leader in premium sugar production, 
+          serving over 25 countries with our commitment to quality and innovation.
         </p>
-        <Link to="/about">
-        <button className="bg-purple-700 text-white px-4 py-2 rounded-full flex items-center">
-          <span className="mr-2">Learn More</span>
-          <span className="text-lg">→</span>
-        </button>
-      </Link>
+        <p className="text-gray-700 text-base sm:text-lg md:text-lg leading-relaxed mb-6 sm:mb-8 md:mb-8">
+          Our journey began in the heart of India's sugarcane belt, and today, we proudly 
+          produce over 2 million tons of sugar annually. With a focus on sustainable farming 
+          practices and cutting-edge technology, we ensure that every grain of sugar reflects 
+          our dedication to excellence.
+        </p>
+        <Link to="/company-overview">
+          <button className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-full flex items-center gap-2 transition-all text-sm sm:text-base">
+            <span className="font-medium">Learn More</span>
+            <svg className="w-4 h-4 sm:w-5 sm:h-5 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </Link>
       </motion.div>
 
-      {/* Auto Slider */}
+      {/* Stats Slider */}
       <motion.div
-        className="w-full md:w-1/2 mt-8 md:mt-0 flex justify-center"
+        className="w-full"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeInRight}
       >
-        <div className="w-full md:w-4/5 min-h-[250px] overflow-x-auto">
+        <div className="w-full min-h-[250px] sm:min-h-[275px] md:min-h-[300px]">
           <Slider {...sliderSettings}>
             {stats.map((item, index) => (
               <div key={index} className="px-2">
-                <div className="bg-green-100 p-6 rounded-lg shadow-lg text-center">
-                  <div className="w-16 h-16 mx-auto mt-8 mb-8 bg-green-700 text-white rounded-full flex items-center justify-center text-xl">
+                <div className="bg-white/95 backdrop-blur-xl p-6 sm:p-7 md:p-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/30 text-center">
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mx-auto mb-4 sm:mb-5 md:mb-6 bg-purple-600 text-white rounded-2xl flex items-center justify-center text-2xl">
                     {item.icon}
                   </div>
-                  <h3 className="text-sm mt-4 mb-4">
-                    {item.label} <br></br> <span className="text-black">{item.value}</span>
+                  <h3 className="text-lg sm:text-xl md:text-xl font-semibold text-purple-700 mb-2 sm:mb-3 md:mb-4">
+                    {item.value}
                   </h3>
+                  <p className="text-gray-600 text-base sm:text-lg md:text-lg">
+                    {item.label}
+                  </p>
                 </div>
               </div>
             ))}
           </Slider>
         </div>
       </motion.div>
-
     </div>
   </div>
 </section>
 
-<div className="w-full flex justify-center mt-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {cards.map((card, index) => (
+
+{/* Cards Section with Background Image */}
+<div className="relative w-full py-24 px-4 overflow-hidden">
+  {/* Background Image with Overlay */}
+  <div className="absolute inset-0">
+    
+    <div className="absolute inset-0 bg-green-900/70" /> {/* Dark green overlay */}
+  </div>
+
+  <div className="relative max-w-7xl mx-auto">
+    {/* Section Title */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl font-bold text-white mb-4">
+        Our <span className="text-green-300">Operations</span>
+      </h2>
+      <p className="text-lg text-green-100 max-w-2xl mx-auto">
+        Discover the different facets of our sustainable sugar production and global operations
+      </p>
+    </motion.div>
+
+    {/* Cards Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+      {cards.map((card, index) => {
+        // Cycle through sugarcane images if there are more cards than images
+        const bgImage = `/sugarcane/sugarcane${(index % 4) + 1}.jpg`;
+        
+        return (
           <motion.div
             key={index}
-            className="relative w-80 h-72 rounded-lg overflow-hidden shadow-lg"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
+            initial={{ opacity: 0, y: 50, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            whileHover={{ 
+              y: -10,
+              scale: 1.02,
+              transition: { duration: 0.3 }
+            }}
+            transition={{ 
+              duration: 0.6,
+              delay: index * 0.15, // Staggered delay
+              ease: "easeOut"
+            }}
+            className="relative group h-96 rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
           >
-            {/* Background Image */}
-            <img
-              src={card.image}
-              alt={card.title}
-              className="absolute w-full h-full object-cover"
-            />
+            {/* Wrap entire card content in Link */}
+            <Link to={card.link} className="block w-full h-full">
+              {/* Card Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={bgImage}
+                  alt={card.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-green-900/40 mix-blend-multiply" />
+              </div>
 
-            {/* Dark Overlay */}
-            <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+              {/* Glowing Border Effect */}
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-green-300/50 rounded-2xl transition-all duration-500" />
 
-            {/* Content */}
-            <div className="absolute bottom-4 left-4 text-white">
-              <h3 className="text-lg font-bold">{card.title}</h3>
-              <p className="text-sm">{card.description}</p>
+              {/* Content Container */}
+              <div className="relative h-full flex flex-col justify-end p-6">
+                {/* Glassmorphism Panel - Equal Height and Width */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
+                  className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 hover:border-green-300/30 transition-all duration-500 w-full h-[200px] flex flex-col justify-between"
+                >
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {card.title}
+                    </h3>
+                    <p className="text-green-100 line-clamp-3">
+                      {card.description}
+                    </p>
+                  </div>
+                  <div className="inline-flex items-center gap-2 text-green-100 hover:text-green-300 font-semibold">
+                    {card.buttonText}
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </motion.div>
+              </div>
+            </Link>
 
-              {/* Button with React Router Link */}
-              <Link
-                to={card.link}
-                className="mt-2 inline-block text-sm bg-white bg-opacity-20 hover:bg-opacity-40 px-3 py-1 rounded-md"
-              >
-                {card.buttonText}
-              </Link>
-            </div>
+            {/* Floating Particles Animation */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="absolute inset-0 overflow-hidden"
+            >
+              {[...Array(15)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ y: -100, x: Math.random() * 200 - 100 }}
+                  
+                />
+              ))}
+            </motion.div>
           </motion.div>
-        ))}
-      </div>
+        );
+      })}
     </div>
+  </div>
 
+  {/* Floating Leaves Animation */}
+  <div className="absolute inset-0 overflow-hidden">
+    {[...Array(10)].map((_, i) => (
+      <motion.div
+        key={i}
+        initial={{ y: -100, x: Math.random() * window.innerWidth }}
+        animate={{
+          y: window.innerHeight,
+          x: Math.random() * 200 - 100,
+          rotate: [0, 360],
+        }}
+        transition={{
+          duration: 10 + Math.random() * 10,
+          repeat: Infinity,
+          ease: "linear",
+          delay: Math.random() * 5,
+        }}
+        className="absolute text-green-300/30"
+        style={{
+          fontSize: `${20 + Math.random() * 20}px`,
+          left: `${Math.random() * 100}%`,
+        }}
+      >
+        🍃
+      </motion.div>
+    ))}
+  </div>
+</div>
 
       {/* 🔹 Achievements Section (with time graph placeholder) */}
         <div className="w-full h-screen max-w-7xl mx-auto py-16 mt-12">
-        <h2 className="text-4xl font-bold text-purple-700 mt-12 mb-12 text-center">Achievements</h2>
+        <h2 className="text-4xl font-bold text-white mt-12 mb-12 text-center">Achievements</h2>
         <motion.div
           className="bg-white p-6 rounded-lg shadow-md"
           initial="hidden"
@@ -489,7 +751,7 @@ function Home() {
           variants={fadeInUp}
         >
           {/* Heading */}
-          <h2 className="text-3xl font-bold text-purple-700 mb-12">What Our Clients Say</h2>
+          <h2 className="text-3xl font-bold text-white mb-12">What Our Clients Say</h2>
 
           <div className="bg-gray-100 p-10 rounded-lg shadow-lg mx-auto w-3/4 md:w-2/3 lg:w-1/2">
             <Slider {...settings}>
@@ -522,7 +784,7 @@ function Home() {
       {/* 🔹 News & Blog Section */}
       <div className="w-full max-w-7xl mx-auto py-16 px-4">
       {/* Section Title */}
-      <h2 className="text-2xl font-bold text-purple-900 mt-6 mb-4 text-center">
+      <h2 className="text-2xl font-bold text-white mt-6 mb-4 text-center">
         Latest News
       </h2>
 
