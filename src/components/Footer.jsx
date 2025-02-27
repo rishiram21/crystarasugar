@@ -34,8 +34,8 @@ function Footer() {
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">Investor Relations</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><Link to="/annual-returns" className="hover:text-purple-600">Annual Returns</Link></li>
-              <li><Link to="/csr-projects" className="hover:text-purple-600">CSR Projects</Link></li>
+              <li><Link to="/" className="hover:text-purple-600">Annual Returns</Link></li>
+              <li><Link to="/" className="hover:text-purple-600">CSR Projects</Link></li>
             </ul>
           </div>
 
@@ -43,8 +43,8 @@ function Footer() {
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">Policies</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><Link to="/nomination-policy" className="hover:text-purple-600">Nomination Policy</Link></li>
-              <li><Link to="/csr-policy" className="hover:text-purple-600">CSR Policy</Link></li>
+              <li><Link to="/" className="hover:text-purple-600">Nomination Policy</Link></li>
+              <li><Link to="/" className="hover:text-purple-600">CSR Policy</Link></li>
             </ul>
           </div>
 
@@ -62,8 +62,8 @@ function Footer() {
                 </Link>
               </li>
               <li><Link to="/about" className="hover:text-purple-600">About</Link></li>
-              <li><Link to="/offering" className="hover:text-purple-600">Offering</Link></li>
-              <li><Link to="/finance" className="hover:text-purple-600">Finance</Link></li>
+              <li><Link to="/company-overview" className="hover:text-purple-600">Company Overview</Link></li>
+              <li><Link to="/products" className="hover:text-purple-600">Products</Link></li>
             </ul>
           </div>
 

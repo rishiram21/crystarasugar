@@ -7,16 +7,14 @@ function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
-  // Close menu when clicking outside (for mobile)
+  // Close menu when clicking outside
   useEffect(() => {
     const handleOutsideClick = (e) => {
-      if (!e.target.closest(".mobile-menu-container")) {
+      if (mobileMenuOpen && !e.target.closest(".mobile-menu") && !e.target.closest(".menu-button")) {
         setMobileMenuOpen(false);
       }
     };
-    if (mobileMenuOpen) {
-      document.addEventListener("click", handleOutsideClick);
-    }
+    document.addEventListener("click", handleOutsideClick);
     return () => document.removeEventListener("click", handleOutsideClick);
   }, [mobileMenuOpen]);
 
@@ -24,30 +22,35 @@ function Navbar() {
     e.preventDefault();
     navigate("/");
     window.scrollTo(0, 0);
+    setMobileMenuOpen(false); // Close mobile menu after clicking
   };
 
   return (
     <nav className="bg-white shadow-md font-sans fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-6 flex items-center justify-between h-16">
+        {/* Logo */}
         <div className="px-10">
-          <a href="/" className="block" onClick={handleHomeClick}>
-            <img src="/crystaralogo.jpeg" alt="Crystara Logo" className="w-50 h-14" />
-          </a>
+          <Link to="/" className="block" onClick={handleHomeClick}>
+            <img src="/crystaralogo.jpg" alt="Crystara Logo" className="w-20 h-14" />
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-gray-700 text-2xl"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-gray-700 text-2xl menu-button"
+          onClick={(e) => {
+            e.stopPropagation(); // Prevents event bubbling
+            setMobileMenuOpen((prev) => !prev);
+          }}
         >
           {mobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 items-center">
-          <a href="/" className="px-4 py-2 text-gray-700 hover:text-purple-700" onClick={handleHomeClick}>
+          <Link to="/" className="px-4 py-2 text-gray-700 hover:text-purple-700" onClick={handleHomeClick}>
             Home
-          </a>
+          </Link>
           <Link to="/about" className="px-4 py-2 text-gray-700 hover:text-purple-700">
             About Us
           </Link>
@@ -73,25 +76,28 @@ function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden bg-white shadow-md mobile-menu-container"
+            className="md:hidden bg-white shadow-md fixed top-16 left-0 w-full mobile-menu z-40"
           >
             <div className="flex flex-col items-center py-4 space-y-3">
-              <a href="/about" className="w-full text-center py-2" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/" className="w-full text-center py-2 text-gray-700 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
+                Home
+              </Link>
+              <Link to="/about" className="w-full text-center py-2 text-gray-700 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
                 About Us
-              </a>
-              <a href="/company-overview" className="w-full text-center py-2" onClick={() => setMobileMenuOpen(false)}>
+              </Link>
+              <Link to="/company-overview" className="w-full text-center py-2 text-gray-700 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
                 Company Overview
-              </a>
-              <a href="/products" className="w-full text-center py-2" onClick={() => setMobileMenuOpen(false)}>
+              </Link>
+              <Link to="/products" className="w-full text-center py-2 text-gray-700 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
                 Products
-              </a>
-              <a
-                href="/media"
-                className="w-full bg-gray-200 py-2 rounded-xl mx-4 text-center"
+              </Link>
+              <Link
+                to="/media"
+                className="w-full bg-gray-200 py-2 rounded-xl mx-4 text-center hover:bg-purple-700 hover:text-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Media
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

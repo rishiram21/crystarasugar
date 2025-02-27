@@ -207,35 +207,38 @@ function Home() {
   };  
 
   return (
-    <div className="w-full">
+    <div className="w-full overflow-hidden">
       {/* 🔹 Full-Width Image Slider */}
       <motion.div
-        className="w-full h-screen relative"
-        initial="hidden"
-        animate="visible"
-        variants={fadeInUp}
-      >
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop={true}
-          speed={1000}
-          className="w-full h-full"
-        >
-          {[...Array(14)].map((_, index) => (
-            <SwiperSlide key={index}>
-              <motion.img
-                src={`/imgslide${index + 1}.jpg`}
-                alt={`Slide ${index + 1}`}
-                className="w-full h-full object-cover"
-                whileHover={{ scale: 1.1 }} // Zoom effect on hover
-                transition={{ duration: 0.5 }} // Smooth transition
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </motion.div>
+  className="w-full h-screen relative overflow-hidden"
+  initial="hidden"
+  animate="visible"
+  variants={fadeInUp}
+>
+  <Swiper
+    modules={[Pagination, Autoplay]}
+    pagination={{ clickable: true }}
+    autoplay={{ delay: 3000, disableOnInteraction: false }}
+    loop={true}
+    speed={1000}
+    className="w-full h-full"
+  >
+    {[...Array(14)].map((_, index) => (
+      <SwiperSlide key={index} className="overflow-hidden">
+        <motion.img
+          src={`/imgslide${index + 1}.jpg`}
+          alt={`Slide ${index + 1}`}
+          className="w-full h-full object-cover"
+          initial={{ scale: 1 }}
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</motion.div>
+
+
 
 
       <div className="relative w-full min-h-screen">
@@ -564,8 +567,7 @@ function Home() {
     {/* Cards Grid */}
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
       {cards.map((card, index) => {
-        // Cycle through sugarcane images if there are more cards than images
-        const bgImage = `/sugarcane/sugarcane${(index % 4) + 1}.jpg`;
+        const bgImage = `/cards/card${(index % 4) + 1}.jpg`;
         
         return (
           <motion.div
@@ -579,7 +581,7 @@ function Home() {
             }}
             transition={{ 
               duration: 0.6,
-              delay: index * 0.15, // Staggered delay
+              delay: index * 0.15, 
               ease: "easeOut"
             }}
             className="relative group h-96 rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
@@ -600,13 +602,13 @@ function Home() {
               <div className="absolute inset-0 border-2 border-transparent group-hover:border-green-300/50 rounded-2xl transition-all duration-500" />
 
               {/* Content Container */}
-              <div className="relative h-full flex flex-col justify-end p-6">
+              <div className="relative h-full flex flex-col justify-end p-2">
                 {/* Glassmorphism Panel - Equal Height and Width */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20 hover:border-green-300/30 transition-all duration-500 w-full h-[200px] flex flex-col justify-between"
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-green-300/30 transition-all duration-500 w-full h-[200px] flex flex-col justify-between"
                 >
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-2">
