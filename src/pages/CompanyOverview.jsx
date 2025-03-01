@@ -22,7 +22,7 @@ function CompanyOverview() {
   };
 
   return (
-    <div className="min-h-screen py-12 bg-gray-50">
+    <div className="min-h-screen py-12 bg-purple-50">
       <div className="container mx-auto px-6 md:px-20 py-8">
         
         {/* Hero Section */}

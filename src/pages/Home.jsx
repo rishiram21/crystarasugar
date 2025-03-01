@@ -72,24 +72,28 @@ function Home() {
       title: "Products",
       description: "Our commitment to sustainable business practices.",
       buttonText: "Find out more →",
+      image: "/cards/card1.jpg",
       link: "/products",
     },
     {
       title: "Media",
       description: "Join our team and grow with us.",
       buttonText: "Explore Careers →",
+      image: "/cards/card2.jpg",
       link: "/media",
     },
     {
       title: "Our Shareholders",
       description: "Building long-term value for our stakeholders.",
       buttonText: "Meet Shareholders →",
+      image: "/cards/card3.jpg",
       link: "/shareholders",
     },
     {
       title: "What is Crystara",
       description: "Access reports, earnings, and financial data.",
       buttonText: "View Reports →",
+      image: "/cards/card4.jpg",
       link: "/about",
     },
   ];
@@ -210,33 +214,33 @@ function Home() {
     <div className="w-full overflow-hidden">
       {/* 🔹 Full-Width Image Slider */}
       <motion.div
-  className="w-full h-screen relative overflow-hidden"
-  initial="hidden"
-  animate="visible"
-  variants={fadeInUp}
->
-  <Swiper
-    modules={[Pagination, Autoplay]}
-    pagination={{ clickable: true }}
-    autoplay={{ delay: 3000, disableOnInteraction: false }}
-    loop={true}
-    speed={1000}
-    className="w-full h-full"
-  >
-    {[...Array(14)].map((_, index) => (
-      <SwiperSlide key={index} className="overflow-hidden">
-        <motion.img
-          src={`/imgslide${index + 1}.jpg`}
-          alt={`Slide ${index + 1}`}
-          className="w-full h-full object-cover"
-          initial={{ scale: 1 }}
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
-        />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</motion.div>
+      className="w-full h-screen sm:h-screen md:h-screen lg:h-screen xl:h-screen 2xl:h-screen max-sm:h-[50vh] relative overflow-hidden"
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+    >
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        pagination={{ clickable: true }}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        loop={true}
+        speed={1000}
+        className="w-full h-full"
+      >
+        {[...Array(14)].map((_, index) => (
+          <SwiperSlide key={index} className="overflow-hidden">
+            <motion.img
+              src={`/imgslide${index + 1}.jpg`}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+              initial={{ scale: 1 }}
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </motion.div>
 
 
 
@@ -294,7 +298,7 @@ function Home() {
 
         {/* Our Story Card */}
         <motion.div
-          className="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white/30"
+          className="bg-white/95 p-8 rounded-3xl shadow-2xl border border-white/30"
           variants={fadeInRight}
           initial="hidden"
           whileInView="visible"
@@ -338,7 +342,7 @@ function Home() {
       {/* Values Section */}
       <div className="grid md:grid-cols-3 gap-8">
         <motion.div
-          className="bg-purple-800/90 backdrop-blur-md p-8 rounded-3xl text-white shadow-2xl"
+          className="bg-purple-800/90 p-8 rounded-3xl text-white shadow-2xl"
           variants={fadeInUp}
         >
           <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -354,7 +358,7 @@ function Home() {
         </motion.div>
 
         <motion.div
-          className="bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-2xl"
+          className="bg-white/95 p-8 rounded-3xl shadow-2xl"
           variants={fadeInUp}
         >
           <h4 className="text-2xl font-bold text-purple-800 mb-4 flex items-center gap-3">
@@ -370,7 +374,7 @@ function Home() {
         </motion.div>
 
         <motion.div
-          className="bg-purple-600/90 backdrop-blur-md p-8 rounded-3xl text-white shadow-2xl"
+          className="bg-purple-600/90 p-8 rounded-3xl text-white shadow-2xl"
           variants={fadeInUp}
         >
           <h4 className="text-2xl font-bold mb-4 flex items-center gap-3">
@@ -418,7 +422,7 @@ function Home() {
         </motion.div>
 
         <motion.div
-          className="bg-white/95 backdrop-blur-xl p-8 rounded-3xl shadow-2xl"
+          className="bg-white/95 p-8 rounded-3xl shadow-2xl"
           variants={fadeInRight}
         >
           <div className="flex items-center gap-4 mb-6">
@@ -477,7 +481,7 @@ function Home() {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
       {/* Text Content */}
       <motion.div
-        className="bg-white/95 backdrop-blur-xl p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/30"
+        className="bg-white/95 p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/30"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
@@ -565,101 +569,54 @@ function Home() {
     </motion.div>
 
     {/* Cards Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
-      {cards.map((card, index) => {
-        const bgImage = `/cards/card${(index % 4) + 1}.jpg`;
-        
-        return (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            whileHover={{ 
-              y: -10,
-              scale: 1.02,
-              transition: { duration: 0.3 }
-            }}
-            transition={{ 
-              duration: 0.6,
-              delay: index * 0.15, 
-              ease: "easeOut"
-            }}
-            className="relative group h-96 rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+    <div className="w-full flex justify-center mt-16 mb-16">
+  <div className="justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+    {cards.map((card, index) => (
+      <motion.div
+        key={index}
+        className="relative w-80 h-72 rounded-lg overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        {/* Background Image */}
+        <img
+          src={card.image}
+          alt={card.title}
+          className="absolute w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+        />
+
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
+
+        {/* Content */}
+        <motion.div
+          className="absolute bottom-4 left-4 text-white transition-transform duration-300 group-hover:translate-y-[-5px]"
+          initial={{ y: 10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h3 className="text-lg font-bold">{card.title}</h3>
+          <p className="text-sm">{card.description}</p>
+
+          {/* Button with React Router Link */}
+          <Link
+            to={card.link}
+            className="mt-2 inline-block text-sm bg-white bg-opacity-20 hover:bg-opacity-40 px-3 py-1 rounded-md transition-colors duration-300"
           >
-            {/* Wrap entire card content in Link */}
-            <Link to={card.link} className="block w-full h-full">
-              {/* Card Background Image */}
-              <div className="absolute inset-0">
-                <img
-                  src={bgImage}
-                  alt={card.title}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-green-900/40 mix-blend-multiply" />
-              </div>
+            {card.buttonText}
+          </Link>
+        </motion.div>
+      </motion.div>
+    ))}
+  </div>
+</div>
 
-              {/* Glowing Border Effect */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-green-300/50 rounded-2xl transition-all duration-500" />
-
-              {/* Content Container */}
-              <div className="relative h-full flex flex-col justify-end p-2">
-                {/* Glassmorphism Panel - Equal Height and Width */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-green-300/30 transition-all duration-500 w-full h-[200px] flex flex-col justify-between"
-                >
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      {card.title}
-                    </h3>
-                    <p className="text-green-100 line-clamp-3">
-                      {card.description}
-                    </p>
-                  </div>
-                  <div className="inline-flex items-center gap-2 text-green-100 hover:text-green-300 font-semibold">
-                    {card.buttonText}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-                </motion.div>
-              </div>
-            </Link>
-
-            {/* Floating Particles Animation */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="absolute inset-0 overflow-hidden"
-            >
-              {[...Array(15)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ y: -100, x: Math.random() * 200 - 100 }}
-                  
-                />
-              ))}
-            </motion.div>
-          </motion.div>
-        );
-      })}
-    </div>
   </div>
 
   {/* Floating Leaves Animation */}
-  <div className="absolute inset-0 overflow-hidden">
+  {/* <div className="absolute inset-0 overflow-hidden">
     {[...Array(10)].map((_, i) => (
       <motion.div
         key={i}
@@ -684,7 +641,7 @@ function Home() {
         🍃
       </motion.div>
     ))}
-  </div>
+  </div> */}
 </div>
 
       {/* 🔹 Achievements Section (with time graph placeholder) */}
