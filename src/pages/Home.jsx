@@ -843,14 +843,21 @@ const clients = [
     {clients.map((client, index) => (
       <div
         key={index}
-        className="bg-white p-4 rounded-full shadow-md flex flex-col items-center text-center w-48 h-32"
-        style={{ borderRadius: '50% / 30%' }}
+        className="bg-white p-6 shadow-md flex flex-col items-center text-center"
+        style={{
+          width: '12rem',
+          height: '6rem',
+          borderRadius: '50% / 50%',
+          overflow: 'hidden'
+        }}
       >
         <h3 className="text-lg font-semibold text-gray-800">{client.name}</h3>
       </div>
     ))}
   </div>
 </div>
+
+
 
 
 
