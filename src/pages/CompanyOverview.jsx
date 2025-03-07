@@ -62,30 +62,51 @@ function CompanyOverview() {
             </p>
           </motion.div>
 
-          {/* Milestones */}
-          <motion.div variants={fadeIn} className="space-y-6">
-            <div className="bg-white p-6 rounded-xl shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Milestones</h3>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">1995: Founded in Maharashtra</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">2005: Achieved ISO 9001 Certification</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">2012: Expanded to National Markets</span>
-                </li>
-                <li className="flex items-center">
-                  <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-                  <span className="text-gray-600">2020: Installed Solar Power Plant</span>
-                </li>
-              </ul>
-            </div>
-          </motion.div>
+         {/* Milestones */}
+<motion.div variants={fadeIn} className="space-y-6">
+  <div className="bg-white p-6 rounded-xl shadow-md">
+    <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Milestones</h3>
+    <ul className="space-y-3">
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2017: Founded in Maharashtra</span>
+      </li>
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2018: Achieved ISO 9001 Certification</span>
+      </li>
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2019: Expanded to National Markets</span>
+      </li>
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2020: Installed Solar Power Plant</span>
+      </li>
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2021: Launched Sustainability Initiatives</span>
+      </li>
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2022: Achieved Zero Waste Certification</span>
+      </li>
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2023: Expanded Internationally</span>
+      </li>
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2024: Implemented AI-Driven Farming Techniques</span>
+      </li>
+      <li className="flex items-center">
+        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+        <span className="text-gray-600">2025: Achieved 100% Renewable Energy Operations</span>
+      </li>
+    </ul>
+  </div>
+</motion.div>
+
         </motion.div>
 
         {/* Stats Section */}

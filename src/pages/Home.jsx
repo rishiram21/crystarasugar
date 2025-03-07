@@ -743,17 +743,17 @@ const clients = [
       <Line data={data} options={options} />
     </div>
     {/* Achievements Timeline */}
-    <div className="mt-8 flex flex-col gap-4 items-start sm:flex-row sm:flex-wrap sm:justify-center">
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2017:</strong> Founded in Maharashtra</span>
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2018:</strong> Achieved ISO 9001 Certification</span>
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2019:</strong> Expanded to National Markets</span>
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2020:</strong> Installed Solar Power Plant</span>
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2021:</strong> Launched Sustainability Initiatives</span>
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2022:</strong> Achieved Zero Waste Certification</span>
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2023:</strong> Expanded Internationally</span>
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2024:</strong> Implemented AI-Driven Farming Techniques</span>
-      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2025:</strong> Achieved 100% Renewable Energy Operations</span>
-    </div>
+      <div className="mt-8 flex flex-col gap-4 items-start sm:flex-row sm:flex-wrap sm:justify-center">
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2017:</strong> Founded in Maharashtra</span>
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2018:</strong> Achieved ISO 9001 Certification</span>
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2019:</strong> Expanded to National Markets</span>
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2020:</strong> Installed Solar Power Plant</span>
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2021:</strong> Launched Sustainability Initiatives</span>
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2022:</strong> Achieved Zero Waste Certification</span>
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2023:</strong> Expanded Internationally</span>
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2024:</strong> Implemented AI-Driven Farming Techniques</span>
+        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2025:</strong> Achieved 100% Renewable Energy Operations</span>
+      </div>
   </motion.div>
 </div>
 
