@@ -59,13 +59,14 @@ function Home() {
 
   // Cards Data
   const stats = [
-    { icon: "🌍", label: "1.Title here", value: "0000" },
-    { icon: "👥", label: "2.Title here", value: "0000" },
-    { icon: "🏢", label: "3.Title here", value: "0000" },
-    { icon: "📦", label: "4.Title here", value: "0000" },
-    { icon: "💼", label: "5.Title here", value: "0000" },
-    { icon: "🚀", label: "6.Title here", value: "0000" },
-  ];
+    { icon: "📈", label: "Revenue Generated", value: "₹ 1.2M" },
+    { icon: "📊", label: "Total Customers", value: "15,000+" },
+    { icon: "🏆", label: "Awards Won Till Now", value: "2" },
+    { icon: "🔗", label: "Partnerships Around", value: "25+" },
+    { icon: "📅", label: "Years in Business", value: "8+" },
+    { icon: "🌟", label: "Customer Satisfaction", value: "85%" },
+];
+
 
   const cards = [
     {
@@ -99,51 +100,56 @@ function Home() {
   ];
 
 
-  //Graph
-  const data = {
-    labels: ["2023", "2019", "2020", "2021", "2022", "2023", "2024"],
-    datasets: [
-      {
-        label: "Production Growth (tons)",
-        data: [50, 75, 100, 150, 200, 250, 300], // Adjust numbers as needed
-        borderColor: "#6b46c1",
-        backgroundColor: "rgba(107, 70, 193, 0.2)",
-        tension: 0.4,
-        pointRadius: 5,
-        pointBackgroundColor: "#6b46c1",
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    plugins: { legend: { display: true }, tooltip: { enabled: true } },
-    scales: {
-      x: { title: { display: true, text: "Year" } },
-      y: { title: { display: true, text: "Production (tons)" }, beginAtZero: true },
-    },
-  };
-
-
-  //Testimonials
-  const testimonials = [
+  // Graph Data
+const data = {
+  labels: ["0","2017", "2018", "2019", "2020", "2021", "2022", "2023","2024","2025"],
+  datasets: [
     {
-      text: "Crystara Sugar's commitment to quality and innovation has transformed our supply chain. Their premium-grade sugar has set new standards in the industry.",
-      author: "Rajesh Sharma",
-      image: "/person1.jpg", 
+      label: "Production Growth (tons)",
+      data: [0, 50, 75, 100, 150, 200, 250, 270, 300, 350], // Adjust numbers as needed
+      borderColor: "#6b46c1",
+      backgroundColor: "rgba(107, 70, 193, 0.2)",
+      tension: 0.4,
+      pointRadius: 5,
+      pointBackgroundColor: "#6b46c1",
     },
-    {
-      text: "The service and efficiency at Crystara Sugar are unparalleled. Our production process has improved significantly due to their timely deliveries.",
-      author: "Meera Patel",
-      image: "/person2.jpg",
-    },
-    {
-      text: "Crystara's focus on sustainability and customer satisfaction makes them the best choice for businesses like ours. Highly recommended!",
-      author: "Amit Verma",
-      image: "/person3.jpg",
-    },
-  ];
-  
+  ],
+};
+
+const options = {
+  responsive: true,
+  plugins: { legend: { display: true }, tooltip: { enabled: true } },
+  scales: {
+    x: { title: { display: true, text: "Year" } },
+    y: { title: { display: true, text: "Production (tons)" }, beginAtZero: true },
+  },
+};
+
+  // Testimonials
+const testimonials = [
+  {
+    text: "Crystara Sugar's commitment to quality and innovation has transformed our supply chain. Their premium-grade sugar has set new standards in the industry.",
+    author: "Rajesh Sharma",
+    designation: "Supply Chain Manager",
+    company: "GreenLeaf Foods",
+    image: "/person1.jpg",
+  },
+  {
+    text: "The service and efficiency at Crystara Sugar are unparalleled. Our production process has improved significantly due to their timely deliveries.",
+    author: "Meera Patel",
+    designation: "Production Manager",
+    company: "SweetTreats Bakery",
+    image: "/person2.jpg",
+  },
+  {
+    text: "Crystara's focus on sustainability and customer satisfaction makes them the best choice for businesses like ours. Highly recommended!",
+    author: "Amit Verma",
+    designation: "Operations Director",
+    company: "FreshBite Organics",
+    image: "/person3.jpg",
+  },
+];
+
   const settings = {
     dots:true,
     arrows: false,
@@ -210,6 +216,72 @@ function Home() {
     ],
   };  
 
+
+  // Company Clients
+const clients = [
+  {
+    name: "GreenLeaf Foods",
+    description: "Sustainable food products sourced from local farmers.",
+    image: "/greenleaf.jpg",
+  },
+  {
+    name: "SweetTreats Bakery",
+    description: "Delicious baked goods made with love and natural ingredients.",
+    image: "/sweettreats.jpg",
+  },
+  {
+    name: "FreshBite Organics",
+    description: "Organic produce delivered fresh to your doorstep.",
+    image: "/freshbite.jpg",
+  },
+  {
+    name: "TechInnovate Solutions",
+    description: "Cutting-edge technology solutions for modern businesses.",
+    image: "/techinnovate.jpg",
+  },
+  {
+    name: "EcoHarvest Farms",
+    description: "Sustainable farming practices for a greener future.",
+    image: "/ecoharvest.jpg",
+  },
+  {
+    name: "Nature's Delight",
+    description: "Natural and wholesome food products for a healthy lifestyle.",
+    image: "/naturesdelight.jpg",
+  },
+  {
+    name: "OrganicOasis",
+    description: "Your oasis for fresh and organic produce.",
+    image: "/organicoasis.jpg",
+  },
+  {
+    name: "TechPioneer Solutions",
+    description: "Innovative technology solutions tailored for your business.",
+    image: "/techpioneer.jpg",
+  },
+  {
+    name: "PureBounty Foods",
+    description: "Pure and natural food products for a healthier you.",
+    image: "/purebounty.jpg",
+  },
+  {
+    name: "HarvestHarmony",
+    description: "Harmonious and sustainable food products from local farms.",
+    image: "/harvestharmony.jpg",
+  },
+  {
+    name: "InnovateTech Solutions",
+    description: "Leading the way in technology innovation for businesses.",
+    image: "/innovatetech.jpg",
+  },
+  {
+    name: "FreshFields Organics",
+    description: "Fresh and organic produce straight from the fields.",
+    image: "/freshfields.jpg",
+  }
+];
+
+
   return (
     <div className="w-full overflow-hidden">
       {/* 🔹 Full-Width Image Slider */}
@@ -261,19 +333,20 @@ function Home() {
     <section className="w-full space-y-20">
       {/* Section Header */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h2 className="text-5xl font-extrabold text-center text-white mb-6">
-          <span className="bg-gradient-to-r from-purple-400 to-pink-300 bg-clip-text text-transparent">
-            About Crystara Sugar
-          </span>
-        </h2>
-        <p className="text-center text-purple-100 text-xl max-w-2xl mx-auto">
-          Crafting sweetness through sustainable innovation since 1995
-        </p>
-      </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+>
+  <h2 className="text-3xl md:text-5xl font-extrabold text-center text-white mb-4 md:mb-6">
+    <span className="bg-gradient-to-r from-purple-400 to-pink-300 bg-clip-text text-transparent">
+      About Crystara Sugar
+    </span>
+  </h2>
+  <p className="text-center text-purple-100 text-lg md:text-xl max-w-2xl mx-auto">
+    Crafting sweetness through sustainable innovation since 1995
+  </p>
+</motion.div>
+
 
       {/* Video & Story Section */}
       <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -312,7 +385,7 @@ function Home() {
             <h3 className="text-3xl font-bold text-purple-800">Our Legacy</h3>
           </div>
           <p className="text-gray-700 text-lg leading-relaxed mb-6">
-            Established in 1995, Crystara Sugar has grown from a regional producer to an international leader 
+            Established in 2017, Crystara Sugar has grown from a regional producer to an international leader 
             in premium sugar products. With over 2 million tons of annual production capacity, we combine 
             traditional farming wisdom with cutting-edge technology to deliver nature's purest sweetness.
           </p>
@@ -391,7 +464,7 @@ function Home() {
       </div>
 
       {/* Vision & Mission Section */}
-      <div className="grid lg:grid-cols-2 gap-12">
+      {/* <div className="grid lg:grid-cols-2 gap-12">
         <motion.div
           className="bg-gradient-to-br from-purple-900 to-blue-900 p-8 rounded-3xl shadow-2xl text-white"
           variants={fadeInLeft}
@@ -452,7 +525,7 @@ function Home() {
             </div>
           </div>
         </motion.div>
-      </div>
+      </div> */}
     </section>
   </div>
 </div>
@@ -464,7 +537,7 @@ function Home() {
   </div>
 
   {/* Content Container */}
-  <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
     {/* Section Heading */}
     <motion.h2
       className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-16"
@@ -478,7 +551,7 @@ function Home() {
     </motion.h2>
 
     {/* Content Grid */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mt-10">
       {/* Text Content */}
       <motion.div
         className="bg-white/95 p-6 md:p-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/30"
@@ -491,15 +564,15 @@ function Home() {
           Sharing Sweetness to the World
         </h3>
         <p className="text-gray-700 text-base sm:text-lg md:text-lg leading-relaxed mb-4 sm:mb-5 md:mb-6">
-          Welcome to Crystara Sugar Private Limited, where sweetness meets sustainability. 
-          Established in 1995, we have grown into a global leader in premium sugar production, 
-          serving over 25 countries with our commitment to quality and innovation.
-        </p>
+        Welcome to Crystara Sugar Private Limited- Sharing Sweetness to the World 
+        We humans have a special bond with sweetness.
+        May it be some celebration or sharing a good news or even turning down conflicts and restoring peace. 
+        
+            </p>
         <p className="text-gray-700 text-base sm:text-lg md:text-lg leading-relaxed mb-6 sm:mb-8 md:mb-8">
-          Our journey began in the heart of India's sugarcane belt, and today, we proudly 
-          produce over 2 million tons of sugar annually. With a focus on sustainable farming 
-          practices and cutting-edge technology, we ensure that every grain of sugar reflects 
-          our dedication to excellence.
+        A small bite of sweets can stop wars and rejuvenate relationships. At Crystara Sugar Pvt. Ltd., 
+        we understand the emotion behind sugar, ensuring quality sourcing, storage, packaging, and transportation. 
+        Since 2016, from Maharashtra’s sugar heartland, we have grown into a leading global exporter and trader of sugar.
         </p>
         <Link to="/company-overview">
           <button className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-full flex items-center gap-2 transition-all text-sm sm:text-base">
@@ -523,13 +596,18 @@ function Home() {
           <Slider {...sliderSettings}>
             {stats.map((item, index) => (
               <div key={index} className="px-2">
-                <div className="bg-white/95 backdrop-blur-xl p-6 sm:p-7 md:p-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/30 text-center">
-                  <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 mx-auto mb-4 sm:mb-5 md:mb-6 bg-purple-600 text-white rounded-2xl flex items-center justify-center text-2xl">
+                <div className="bg-white/95 p-6 sm:p-7 md:p-8 rounded-2xl md:rounded-3xl shadow-xl md:shadow-2xl border border-white/30 text-center h-[300px] flex flex-col items-center justify-center space-y-4">
+                  {/* Icon Container */}
+                  <div className="w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-purple-600 text-white rounded-2xl flex items-center justify-center text-2xl shrink-0">
                     {item.icon}
                   </div>
-                  <h3 className="text-lg sm:text-xl md:text-xl font-semibold text-purple-700 mb-2 sm:mb-3 md:mb-4">
+                  
+                  {/* Value */}
+                  <h3 className="text-lg sm:text-xl md:text-xl font-semibold text-purple-700">
                     {item.value}
                   </h3>
+                  
+                  {/* Label */}
                   <p className="text-gray-600 text-base sm:text-lg md:text-lg">
                     {item.label}
                   </p>
@@ -537,6 +615,8 @@ function Home() {
               </div>
             ))}
           </Slider>
+
+
         </div>
       </motion.div>
     </div>
@@ -555,65 +635,65 @@ function Home() {
   <div className="relative max-w-7xl mx-auto">
     {/* Section Title */}
     <motion.div
+      className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-16"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="text-center mb-16"
+      transition={{ duration: 0.8 }}
     >
-      <h2 className="text-4xl font-bold text-white mb-4">
-        Our <span className="text-green-300">Operations</span>
-      </h2>
+      <span className="bg-gradient-to-r from-green-400 to-green-300 bg-clip-text text-transparent">
+        Our Operations
+      </span>
       <p className="text-lg text-green-100 max-w-2xl mx-auto">
         Discover the different facets of our sustainable sugar production and global operations
       </p>
     </motion.div>
 
-    {/* Cards Grid */}
-    <div className="w-full flex justify-center mt-16 mb-16">
-  <div className="justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-    {cards.map((card, index) => (
-      <motion.div
-        key={index}
-        className="relative w-80 h-72 rounded-lg overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        {/* Background Image */}
-        <img
-          src={card.image}
-          alt={card.title}
-          className="absolute w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-        />
+            {/* Cards Grid */}
+            <div className="w-full flex justify-center mt-16 mb-16">
+          <div className="justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+            {cards.map((card, index) => (
+              <motion.div
+                key={index}
+                className="relative w-80 h-72 rounded-lg overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+              >
+                {/* Background Image */}
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  className="absolute w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
+                {/* Dark Overlay */}
+                <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
 
-        {/* Content */}
-        <motion.div
-          className="absolute bottom-4 left-4 text-white transition-transform duration-300 group-hover:translate-y-[-5px]"
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <h3 className="text-lg font-bold">{card.title}</h3>
-          <p className="text-sm">{card.description}</p>
+                {/* Content */}
+                <motion.div
+                  className="absolute bottom-4 left-4 text-white transition-transform duration-300 group-hover:translate-y-[-5px]"
+                  initial={{ y: 10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  <h3 className="text-lg font-bold">{card.title}</h3>
+                  <p className="text-sm">{card.description}</p>
 
-          {/* Button with React Router Link */}
-          <Link
-            to={card.link}
-            className="mt-2 inline-block text-sm bg-white bg-opacity-20 hover:bg-opacity-40 px-3 py-1 rounded-md transition-colors duration-300"
-          >
-            {card.buttonText}
-          </Link>
-        </motion.div>
-      </motion.div>
-    ))}
-  </div>
-</div>
+                  {/* Button with React Router Link */}
+                  <Link
+                    to={card.link}
+                    className="mt-2 inline-block text-sm bg-white bg-opacity-20 hover:bg-opacity-40 px-3 py-1 rounded-md transition-colors duration-300"
+                  >
+                    {card.buttonText}
+                  </Link>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
-  </div>
+          </div>
 
   {/* Floating Leaves Animation */}
   {/* <div className="absolute inset-0 overflow-hidden">
@@ -644,65 +724,84 @@ function Home() {
   </div> */}
 </div>
 
-      {/* 🔹 Achievements Section (with time graph placeholder) */}
-        <div className="w-full h-screen max-w-7xl mx-auto py-16 mt-12">
-        <h2 className="text-4xl font-bold text-white mt-12 mb-12 text-center">Achievements</h2>
-        <motion.div
-          className="bg-white p-6 rounded-lg shadow-md"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          <p className="text-gray-700 text-lg text-center">
-            Over the years, Crystara Sugar has achieved remarkable milestones in the industry.
-          </p>
-          {/* 📊 Time Graph */}
-          {/* 📊 Time Graph */}
-          <div className="w-full h-96 bg-gray-100 rounded-lg mt-4 p-4 flex justify-center items-center">
-            <Line data={data} options={options} />
+
+
+<div className="w-full h-auto max-w-7xl mx-auto py-16 mt-12 mb-12 px-4">
+  <h2 className="text-4xl font-bold text-purple-400 mt-12 mb-12 text-center">Achievements</h2>
+  <motion.div
+    className="bg-white p-6 rounded-lg shadow-md"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeInUp}
+  >
+    <p className="text-gray-700 text-lg text-center">
+      Over the years, Crystara Sugar has achieved remarkable milestones in the industry.
+    </p>
+    {/* Time Graph */}
+    <div className="w-full h-96 bg-gray-100 rounded-lg mt-4 p-4 flex justify-center items-center">
+      <Line data={data} options={options} />
+    </div>
+    {/* Achievements Timeline */}
+    <div className="mt-8 flex flex-col gap-4 items-start sm:flex-row sm:flex-wrap sm:justify-center">
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2017:</strong> Founded in Maharashtra</span>
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2018:</strong> Achieved ISO 9001 Certification</span>
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2019:</strong> Expanded to National Markets</span>
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2020:</strong> Installed Solar Power Plant</span>
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2021:</strong> Launched Sustainability Initiatives</span>
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2022:</strong> Achieved Zero Waste Certification</span>
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2023:</strong> Expanded Internationally</span>
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2024:</strong> Implemented AI-Driven Farming Techniques</span>
+      <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2025:</strong> Achieved 100% Renewable Energy Operations</span>
+    </div>
+  </motion.div>
+</div>
+
+
+
+<div className="relative w-full h-auto max-w-7xl mx-auto py-16 mt-14 px-4">
+  {/* Box Container */}
+  <motion.div
+    className="relative z-10 text-center"
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    variants={fadeInUp}
+  >
+    {/* Heading */}
+    <h2 className="text-3xl font-bold text-purple-400 mb-12">What Our Clients Say</h2>
+
+    <div className="bg-gray-100 p-6 rounded-lg shadow-lg mx-auto w-full md:w-3/4 lg:w-2/3">
+      <Slider {...settings}>
+        {testimonials.map((testimonial, index) => (
+          <div key={index} className="text-center flex flex-col items-center">
+            {/* Centered Image */}
+            <div className="flex justify-center items-center w-full">
+              <img
+                src={testimonial.image}
+                alt={testimonial.author}
+                className="w-24 h-24 object-cover rounded-full border-4 border-purple-500 shadow-md"
+              />
+            </div>
+
+            {/* Testimonial Text */}
+            <p className="text-gray-700 italic text-lg mt-6">"{testimonial.text}"</p>
+
+            {/* Author Name & Designation */}
+            <p className="font-bold text-purple-700 mt-4 text-lg">{testimonial.author}</p>
+            <p className="text-gray-500 text-sm">{testimonial.designation}</p>
+
+            {/* Company Name */}
+            <p className="text-gray-500 text-sm mt-2 font-semibold">{testimonial.company}</p>
           </div>
-        </motion.div>
-        </div>
+        ))}
+      </Slider>
+    </div>
+  </motion.div>
+</div>
 
-      {/* 🔹 Testimonials Section */} 
-      <div className="relative w-full h-auto max-w-7xl mx-auto py-16 mt-12">
-        {/* Box Container */}
-        <motion.div
-          className="relative z-10 text-center"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeInUp}
-        >
-          {/* Heading */}
-          <h2 className="text-3xl font-bold text-white mb-12">What Our Clients Say</h2>
 
-          <div className="bg-gray-100 p-10 rounded-lg shadow-lg mx-auto w-3/4 md:w-2/3 lg:w-1/2">
-            <Slider {...settings}>
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="text-center flex flex-col items-center">
-                  {/* Centered Image */}
-                  <div className="flex justify-center items-center w-full">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.author}
-                      className="w-24 h-24 object-cover rounded-full border-4 border-purple-500 shadow-md"
-                    />
-                  </div>
 
-                  {/* Testimonial Text */}
-                  <p className="text-gray-700 italic text-lg mt-6">"{testimonial.text}"</p>
-
-                  {/* Author Name & Designation */}
-                  <p className="font-bold text-purple-700 mt-4 text-lg">{testimonial.author}</p>
-                  <p className="text-gray-500 text-sm">{testimonial.designation}</p>
-                </div>
-              ))}
-            </Slider>
-          </div>
-        </motion.div>
-      </div>
 
 
 
@@ -736,7 +835,27 @@ function Home() {
     </Slider>
 
     </div>
-    </div>
+
+
+    <div className="w-full h-auto max-w-7xl mx-auto py-16 px-4">
+  <h2 className="text-2xl font-bold text-purple-400 mb-8 text-center">Our Clients</h2>
+  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+    {clients.map((client, index) => (
+      <div
+        key={index}
+        className="bg-white p-4 rounded-full shadow-md flex flex-col items-center text-center w-48 h-32"
+        style={{ borderRadius: '50% / 30%' }}
+      >
+        <h3 className="text-lg font-semibold text-gray-800">{client.name}</h3>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+
+
+</div>
   );
 }
 

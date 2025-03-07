@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -23,6 +24,10 @@ function Navbar() {
     navigate("/");
     window.scrollTo(0, 0);
     setMobileMenuOpen(false); // Close mobile menu after clicking
+  };
+
+  const isActive = (path) => {
+    return location.pathname === path ? "text-purple-700 font-bold" : "text-gray-700";
   };
 
   return (
@@ -48,21 +53,18 @@ function Navbar() {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-6 items-center">
-          <Link to="/" className="px-4 py-2 text-gray-700 hover:text-purple-700" onClick={handleHomeClick}>
-            Home
-          </Link>
-          <Link to="/about" className="px-4 py-2 text-gray-700 hover:text-purple-700">
+          <Link to="/about" className={`px-4 py-2 hover:text-purple-700 ${isActive("/about")}`}>
             About Us
           </Link>
-          <Link to="/company-overview" className="px-4 py-2 text-gray-700 hover:text-purple-700">
+          <Link to="/company-overview" className={`px-4 py-2 hover:text-purple-700 ${isActive("/company-overview")}`}>
             Company Overview
           </Link>
-          <Link to="/products" className="px-4 py-2 text-gray-700 hover:text-purple-700">
+          <Link to="/products" className={`px-4 py-2 hover:text-purple-700 ${isActive("/products")}`}>
             Products
           </Link>
           <Link
             to="/media"
-            className="bg-gray-200 px-4 py-2 rounded-xl shadow-md text-gray-700 hover:bg-purple-700 hover:text-white"
+            className={`bg-gray-200 px-4 py-2 rounded-xl shadow-md hover:bg-purple-700 hover:text-white ${isActive("/media")}`}
           >
             Media
           </Link>
@@ -79,21 +81,18 @@ function Navbar() {
             className="md:hidden bg-white shadow-md fixed top-16 left-0 w-full mobile-menu z-40"
           >
             <div className="flex flex-col items-center py-4 space-y-3">
-              <Link to="/" className="w-full text-center py-2 text-gray-700 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
-                Home
-              </Link>
-              <Link to="/about" className="w-full text-center py-2 text-gray-700 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/about" className={`w-full text-center py-2 hover:bg-gray-100 ${isActive("/about")}`} onClick={() => setMobileMenuOpen(false)}>
                 About Us
               </Link>
-              <Link to="/company-overview" className="w-full text-center py-2 text-gray-700 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/company-overview" className={`w-full text-center py-2 hover:bg-gray-100 ${isActive("/company-overview")}`} onClick={() => setMobileMenuOpen(false)}>
                 Company Overview
               </Link>
-              <Link to="/products" className="w-full text-center py-2 text-gray-700 hover:bg-gray-100" onClick={() => setMobileMenuOpen(false)}>
+              <Link to="/products" className={`w-full text-center py-2 hover:bg-gray-100 ${isActive("/products")}`} onClick={() => setMobileMenuOpen(false)}>
                 Products
               </Link>
               <Link
                 to="/media"
-                className="w-full bg-gray-200 py-2 rounded-xl mx-4 text-center hover:bg-purple-700 hover:text-white"
+                className={`w-full bg-gray-200 py-2 rounded-xl mx-4 text-center hover:bg-purple-700 hover:text-white ${isActive("/media")}`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Media

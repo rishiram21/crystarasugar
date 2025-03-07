@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const events = [
@@ -30,16 +30,43 @@ function Media() {
   const [activeTab, setActiveTab] = useState("events");
   const [loading, setLoading] = useState(true);
   const [playingVideo, setPlayingVideo] = useState(null);
+  const videoRefs = useRef([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setTimeout(() => setLoading(false), 500);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const video = entry.target;
+            video.play().catch((error) => {
+              console.error("Error attempting to play", error);
+            });
+          } else {
+            const video = entry.target;
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    videoRefs.current.forEach((video) => {
+      if (video) {
+        observer.observe(video);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <motion.div className="bg-purple min-h-screen py-12" initial="hidden" animate="visible" variants={staggerContainer}>
       <div className="container mx-auto px-6 md:px-20 py-8">
-        
         <motion.div className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-5 bg-cover bg-center" style={{ backgroundImage: "url('/mediaimg.jpg')", minHeight: "200px" }} variants={fadeInUp}>
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
           <h1 className="relative text-2xl md:text-5xl font-bold text-white mx-auto">Media</h1>
@@ -69,7 +96,7 @@ function Media() {
             {activeTab === "videos" && videos.map((video, index) => (
               <motion.div key={index} className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-all duration-300 cursor-pointer" onClick={() => setPlayingVideo(playingVideo === index ? null : index)} variants={fadeInUp}>
                 {playingVideo === index ? (
-                  <motion.video autoPlay className="w-full h-56 object-cover">
+                  <motion.video ref={(el) => (videoRefs.current[index] = el)} autoPlay className="w-full h-56 object-cover">
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support the video tag.
                   </motion.video>

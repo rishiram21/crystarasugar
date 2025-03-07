@@ -25,7 +25,7 @@ function Footer() {
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">About</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><Link to="/profile" className="hover:text-purple-600">Profile</Link></li>
+              <li><Link to="/" className="hover:text-purple-600">Profile</Link></li>
               <li><Link to="/about" className="hover:text-purple-600">Crystara Sugar Pvt Ltd</Link></li>
             </ul>
           </div>

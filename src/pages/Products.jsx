@@ -77,6 +77,72 @@ function Products() {
           "Certification: Organic Certified"
         ]
       },
+      {
+        name: "upcoming",
+        image: "/commingsoon.jpg",
+        description: "",
+        specs: [
+          "Moisture Content: NA",
+          "Packaging: NA",
+          "Shelf Life: NA",
+          "Certification: NA"
+        ]
+      },
+      {
+        name: "upcoming",
+        image: "/commingsoon.jpg",
+        description: "",
+        specs: [
+          "Moisture Content: NA",
+          "Packaging: NA",
+          "Shelf Life: NA",
+          "Certification: NA"
+        ]
+      },
+      {
+        name: "upcoming",
+        image: "/commingsoon.jpg",
+        description: "",
+        specs: [
+          "Moisture Content: NA",
+          "Packaging: NA",
+          "Shelf Life: NA",
+          "Certification: NA"
+        ]
+      },
+      {
+        name: "upcoming",
+        image: "/commingsoon.jpg",
+        description: "",
+        specs: [
+          "Moisture Content: NA",
+          "Packaging: NA",
+          "Shelf Life: NA",
+          "Certification: NA"
+        ]
+      },
+      {
+        name: "upcoming",
+        image: "/commingsoon.jpg",
+        description: "",
+        specs: [
+          "Moisture Content: NA",
+          "Packaging: NA",
+          "Shelf Life: NA",
+          "Certification: NA"
+        ]
+      },
+      {
+        name: "upcoming",
+        image: "/commingsoon.jpg",
+        description: "",
+        specs: [
+          "Moisture Content: NA",
+          "Packaging: NA",
+          "Shelf Life: NA",
+          "Certification: NA"
+        ]
+      }
   ];
 
   const handleNavigation = (newDirection) => {
@@ -87,9 +153,9 @@ function Products() {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 md:px-20 bg-[url('/sugarcane/sugarcane1.jpg')] bg-cover bg-center ">
-
-      <div className="container mx-auto py-8">
+    <div className="relative min-h-screen py-12 px-4 md:px-20 bg-cover bg-center mt-12" style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}>
+  <div className="absolute inset-0 bg-black opacity-50"></div>
+  <div className="relative z-10">
         
         {/* About Us Header */}
         <motion.div
@@ -106,43 +172,43 @@ function Products() {
         </motion.div>
 
         {/* Product Grid with Animation */}
-<motion.div
-  className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
-  initial="hidden"
-  animate="visible"
-  variants={{
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { staggerChildren: 0.2, duration: 0.5 },
-    },
-  }}
->
-  {products.map((product, index) => (
-    <motion.div
-      key={index}
-      className="relative bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer group"
-      whileHover={{ scale: 1.05 }}
-      variants={{
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0 },
-      }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      onClick={() => setSelectedProduct(product)}
-    >
-      <img 
-        src={product.image} 
-        alt={product.name} 
-        className="w-full h-64 object-cover transition-all duration-500 group-hover:opacity-50"
-      />
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0, y: 50 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { staggerChildren: 0.2, duration: 0.5 },
+            },
+          }}
+        >
+          {products.map((product, index) => (
+            <motion.div
+              key={index}
+              className="relative bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer group"
+              whileHover={{ scale: 1.05 }}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: { opacity: 1, y: 0 },
+              }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              onClick={() => setSelectedProduct(product)}
+            >
+              <img 
+                src={product.image} 
+                alt={product.name} 
+                className="w-full h-64 object-cover transition-all duration-500 group-hover:opacity-50"
+              />
 
-      <h3 className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-500">
-        {product.name}
-      </h3>
-    </motion.div>
-  ))}
-</motion.div>
+              <h3 className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-500">
+                {product.name}
+              </h3>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* Product Detail Overlay */}
         <AnimatePresence>

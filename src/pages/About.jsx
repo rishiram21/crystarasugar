@@ -1,6 +1,17 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
+// Define motion variants if not already defined
+const fadeInLeft = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 50 },
+  visible: { opacity: 1, x: 0 },
+};
+
 // Circular Progress Component for Static Values
 const CircularProgress = ({ value, label }) => {
   const circumference = 2 * Math.PI * 50;
@@ -9,7 +20,7 @@ const CircularProgress = ({ value, label }) => {
   return (
     <div className="flex flex-col items-center">
       <div className="relative">
-        <svg className="w-32 h-32 transform rotate-90">
+        <svg className="w-24 h-24 md:w-32 md:h-32 transform rotate-90">
           {/* Background Circle */}
           <circle cx="64" cy="64" r="50" stroke="#E5E7EB" strokeWidth="8" fill="none" />
           {/* Animated Progress Circle */}
@@ -31,14 +42,14 @@ const CircularProgress = ({ value, label }) => {
             y="64"
             textAnchor="middle"
             dominantBaseline="middle"
-            className="text-2xl font-bold fill-purple-700"
+            className="text-xl md:text-2xl font-bold fill-purple-700"
             transform="rotate(-90 64 64)"
           >
             {value}%
           </text>
         </svg>
       </div>
-      <p className="mt-4 text-lg font-medium text-gray-700">{label}</p>
+      <p className="mt-4 text-base md:text-lg font-medium text-gray-700">{label}</p>
     </div>
   );
 };
@@ -73,7 +84,7 @@ const CircularProgressNumber = ({ target, label }) => {
   return (
     <div className="flex flex-col items-center">
       <div className="relative">
-        <svg className="w-32 h-32 transform rotate-90">
+        <svg className="w-24 h-24 md:w-32 md:h-32 transform rotate-90">
           {/* Background Circle */}
           <circle cx="64" cy="64" r="50" stroke="#E5E7EB" strokeWidth="8" fill="none" />
           {/* Animated Progress Circle */}
@@ -95,14 +106,14 @@ const CircularProgressNumber = ({ target, label }) => {
             y="64"
             textAnchor="middle"
             dominantBaseline="middle"
-            className="text-2xl font-bold fill-purple-700"
+            className="text-xl md:text-2xl font-bold fill-purple-700"
             transform="rotate(-90 64 64)"
           >
             {count}+
           </text>
         </svg>
       </div>
-      <p className="mt-4 text-lg font-medium text-gray-700">{label}</p>
+      <p className="mt-4 text-base md:text-lg font-medium text-gray-700">{label}</p>
     </div>
   );
 };
@@ -115,10 +126,9 @@ function About() {
   return (
     <div className="bg-purple-50 min-h-screen py-12 px-4 md:px-20">
       <div className="container mx-auto py-8">
-        
         {/* About Us Header */}
         <motion.div
-          className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
+          className="relative w-full h-48 md:h-64 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
           style={{ backgroundImage: "url('/aboutimg.jpg')" }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -126,12 +136,12 @@ function About() {
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
           <div className="relative w-full flex flex-col items-center p-8 text-center">
-            <h1 className="text-2xl md:text-5xl font-bold text-white">About Us</h1>
+            <h1 className="text-xl md:text-5xl font-bold text-white">About Us</h1>
           </div>
         </motion.div>
 
         {/* Stats Section */}
-        <motion.div 
+        <motion.div
           className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 md:gap-12 mb-12 px-4 text-center"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -139,59 +149,144 @@ function About() {
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
           <CircularProgress value={85} label="Client Satisfaction" />
-          <CircularProgressNumber target={5} label="Years of Experience" />
+          <CircularProgressNumber target={8} label="Years of Experience" />
           <CircularProgress value={100} label="Product Quality" />
         </motion.div>
 
-        {/* About Sections */}
-        {[
-          {
-            title: "Who We Are",
-            description: "Crystara Sugar Pvt Ltd is a leading manufacturer in the sugar industry.",
-            image: "/aboutimg1.jpg",
-            reverse: false
-          },
-          {
-            title: "Our Journey",
-            description: "Established over 20 years ago, Crystara Sugar has grown into a global supplier.",
-            image: "/aboutimg2.jpg",
-            reverse: true
-          },
-          {
-            title: "Our Core Values",
-            description: "<ul class='list-disc pl-6'><li><strong>Quality:</strong> Premium sugar products.</li><li><strong>Innovation:</strong> Industry-leading solutions.</li><li><strong>Sustainability:</strong> Eco-friendly processes.</li></ul>",
-            image: "/aboutimg3.jpg",
-            reverse: false
-          },
-          {
-            title: "Our Mission & Vision",
-            description: "Our mission is to provide high-quality sugar products while maintaining eco-friendly production processes.",
-            image: "/aboutimg4.jpg",
-            reverse: true
-          }
-        ].map((section, index) => (
-          <motion.div 
-            key={index} 
-            className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white p-6 shadow-md ${
-              section.reverse ? 'md:flex-row-reverse' : ''
-            }`}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+        {/* Vision & Mission Section */}
+        <div className="grid lg:grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+          <div
+            className="bg-gradient-to-br from-purple-900 to-blue-900 p-8 rounded-3xl shadow-2xl text-white"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInLeft}
           >
-            {/* Image Section */}
-            <motion.div className="flex justify-center">
-              <img src={section.image} alt={section.title} className="rounded-lg shadow-lg w-full md:w-3/4" />
-            </motion.div>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-white/10 rounded-xl">
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl md:text-3xl font-bold">Our Vision</h3>
+            </div>
+            <p className="text-base md:text-lg leading-relaxed text-purple-100 mb-6">
+              To redefine global sweetness by 2030 through carbon-neutral operations and AI-driven sustainable
+              agriculture. We envision a world where every sugar crystal tells a story of environmental stewardship
+              and social responsibility.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 bg-purple-400 rounded-full" />
+                <span>100% Renewable Energy by 2025</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 bg-purple-400 rounded-full" />
+                <span>Zero Waste Certification by 2026</span>
+              </div>
+            </div>
+          </div>
 
-            {/* Text Section */}
-            <motion.div className="text-center md:text-left">
-              <h2 className="text-2xl font-semibold text-purple-700 mb-4">{section.title}</h2>
-              <p className="text-gray-600 text-lg" dangerouslySetInnerHTML={{ __html: section.description }}></p>
-            </motion.div>
-          </motion.div>
+          <div
+            className="bg-white/95 p-8 rounded-3xl shadow-2xl"
+            initial="hidden"
+            whileInView="visible"
+            variants={fadeInRight}
+          >
+            <div className="flex items-center gap-4 mb-6">
+              <div className="p-3 bg-purple-100 rounded-xl">
+                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-xl md:text-3xl font-bold text-purple-800">Our Mission</h3>
+            </div>
+            <p className="text-base md:text-lg leading-relaxed text-gray-700 mb-6">
+              To continuously innovate in sustainable sugar production while maintaining the highest quality standards.
+              We commit to:
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl">
+                <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">
+                  01
+                </div>
+                <span>Developing 100% biodegradable packaging by 2024</span>
+              </div>
+              <div className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl">
+                <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">
+                  02
+                </div>
+                <span>Tripling farmer income through precision agriculture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {[
+  {
+    title: "Who We Are",
+    description: "Started as a small local producer, we have expanded our operations to meet international demand. With a commitment to excellence, we continuously evolve with market trends and emerging technologies.",
+    subpoints: [
+      "Founded on the principles of quality and excellence.",
+      "Committed to delivering the finest sugar products.",
+      "Dedicated to customer satisfaction and innovation."
+    ],
+    "image": "/aboutimg1.jpg",
+    "reverse": false
+  },  
+  {
+    title: "Our Journey",
+    description: "Starting as a small local producer, we have expanded our operations to meet international demand. With a forward-thinking approach, we continuously evolve by adapting to market trends and emerging technologies.",
+    subpoints: [
+      "Started as a small local producer.",
+      "Expanded operations to meet international demand.",
+      "Continuously evolving with market trends and technologies."
+    ],
+    "image": "/aboutimg2.jpg",
+    "reverse": true
+  },  
+  {
+    title: "Our Core Values",
+    description: "We uphold principles that drive sustainability, innovation, and ethical business practices.",
+    subpoints: [
+      "Sustainable practices",
+      "Eco-friendly approach",
+      "Research investment",
+      "Product innovation",
+      "Ethical business",
+      "Community engagement"
+    ],
+    "image": "/aboutimg3.jpg",
+    "reverse": false
+  }
+  
+].map((section, index) => (
+  <motion.div
+    key={index}
+    className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-start bg-white p-6 shadow-md ${
+      section.reverse ? 'md:flex-row-reverse' : ''
+    }`}
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1.5, ease: "easeInOut" }}
+  >
+    {/* Image Section */}
+    <motion.div className="flex justify-center items-start">
+      <img src={section.image} alt={section.title} className="rounded-lg shadow-lg w-full md:w-3/4" />
+    </motion.div>
+
+    {/* Text Section */}
+    <motion.div className="text-left md:text-left">
+      <h2 className="text-xl md:text-2xl font-semibold text-purple-700 mb-4">{section.title}</h2>
+      <div className="text-gray-600 text-base md:text-lg mb-4" dangerouslySetInnerHTML={{ __html: section.description }}></div>
+      <ul className="list-disc pl-6 text-gray-600 text-base md:text-lg">
+        {section.subpoints.map((point, idx) => (
+          <li key={idx}>{point}</li>
         ))}
+      </ul>
+    </motion.div>
+  </motion.div>
+))}
 
       </div>
     </div>
