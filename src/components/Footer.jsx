@@ -10,7 +10,7 @@ function Footer() {
         
         {/* Logo & Tagline */}
         <div className="text-center mb-8">
-          <img src="/crystarafooter.jpg" alt="Crystara Sugar" className="mx-auto w-24 h-auto" />
+          <img src="/crlogo.jpg" alt="Crystara Sugar" className="mx-auto w-24 h-auto" />
           <h2 className="text-xl font-semibold mt-2">Crystara Sugar Pvt Ltd</h2>
           <p className="text-sm text-gray-600">
             A Leading Manufacturer Committed to Quality & Sustainability
@@ -25,7 +25,7 @@ function Footer() {
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">About</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><Link to="/" className="hover:text-purple-600">Profile</Link></li>
+              <li><Link to="#" className="hover:text-purple-600">Profile</Link></li>
               <li><Link to="/about" className="hover:text-purple-600">Crystara Sugar Pvt Ltd</Link></li>
             </ul>
           </div>
@@ -34,8 +34,8 @@ function Footer() {
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">Investor Relations</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><Link to="/" className="hover:text-purple-600">Annual Returns</Link></li>
-              <li><Link to="/" className="hover:text-purple-600">CSR Projects</Link></li>
+              <li><Link to="#" className="hover:text-purple-600">Annual Returns</Link></li>
+              <li><Link to="#" className="hover:text-purple-600">CSR Projects</Link></li>
             </ul>
           </div>
 
@@ -43,8 +43,8 @@ function Footer() {
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">Policies</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><Link to="/" className="hover:text-purple-600">Nomination Policy</Link></li>
-              <li><Link to="/" className="hover:text-purple-600">CSR Policy</Link></li>
+              <li><Link to="#" className="hover:text-purple-600">Nomination Policy</Link></li>
+              <li><Link to="#" className="hover:text-purple-600">CSR Policy</Link></li>
             </ul>
           </div>
 
@@ -73,7 +73,7 @@ function Footer() {
             <p className="text-gray-600"><strong>Phone:</strong> +91 98604 33364</p>
             <p className="text-gray-600"><strong>Email:</strong> crystarasugar@gmail.com</p>
             <p className="text-gray-600">
-              <strong>Address:</strong> 604, Gear's Imperium Rise, Biotech Park, Hinjewadi, Pune 411 057
+              <strong>Address:</strong> 845, Gear's Imperium Rise, Biotech Park, Hinjewadi, Pune 411 057
             </p>
           </div>
 

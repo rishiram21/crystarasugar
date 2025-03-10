@@ -87,7 +87,7 @@ function Media() {
           <motion.div className="grid md:grid-cols-3 gap-6" variants={staggerContainer}>
             {activeTab === "events" && events.map((event, index) => (
               <motion.div key={index} className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-all duration-300" variants={fadeInUp}>
-                <img src={event.image} alt={event.title} className="w-full h-56 object-cover" loading="lazy" />
+                <img src={event.image} alt={event.title} className="w-full h-56 object-cover lazyload" loading="lazy" />
                 <div className="p-4">
                   <h3 className="text-lg font-semibold text-gray-800 text-center">{event.title}</h3>
                 </div>
@@ -96,12 +96,12 @@ function Media() {
             {activeTab === "videos" && videos.map((video, index) => (
               <motion.div key={index} className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-all duration-300 cursor-pointer" onClick={() => setPlayingVideo(playingVideo === index ? null : index)} variants={fadeInUp}>
                 {playingVideo === index ? (
-                  <motion.video ref={(el) => (videoRefs.current[index] = el)} autoPlay className="w-full h-56 object-cover">
+                  <motion.video ref={(el) => (videoRefs.current[index] = el)} autoPlay className="w-full h-56 object-cover lazyload" loading="lazy">
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support the video tag.
                   </motion.video>
                 ) : (
-                  <motion.img src={video.thumbnail} alt={video.title} className="w-full h-56 object-cover" loading="lazy" />
+                  <motion.img src={video.thumbnail} alt={video.title} className="w-full h-56 object-cover lazyload" loading="lazy" />
                 )}
                 <div className="p-4">
                   <h3 className="text-lg font-semibold text-gray-800 text-center">{video.title}</h3>

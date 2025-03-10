@@ -34,7 +34,7 @@ function Navbar() {
     <nav className="bg-white shadow-md font-sans fixed top-0 left-0 right-0 z-50">
       <div className="container mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <div className="px-10">
+        <div className="px-1">
           <Link to="/" className="block" onClick={handleHomeClick}>
             <img src="/crystaralogo.jpg" alt="Crystara Logo" className="w-20 h-14" />
           </Link>
