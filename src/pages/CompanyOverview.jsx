@@ -119,8 +119,8 @@ function CompanyOverview() {
         >
           {[
             { title: "Annual Production", value: "500,000+", unit: "Tonnes" },
-            { title: "Happy Clients", value: "2500+", unit: "Nationwide" },
-            { title: "Team Members", value: "450+", unit: "Professionals" },
+            { title: "Happy Clients", value: "2500+", unit: "Worldwide" },
+            { title: "Team Members", value: "250+", unit: "Professionals" },
           ].map((stat, index) => (
             <motion.div
               key={index}

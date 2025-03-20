@@ -10,6 +10,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
 
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -125,6 +127,42 @@ const options = {
   },
 };
 
+const achievements = [
+  { year: "2017", text: "Founded in Maharashtra" },
+  { year: "2018", text: "Achieved ISO 9001 Certification" },
+  { year: "2019", text: "Expanded to National Markets" },
+  { year: "2020", text: "Installed Solar Power Plant" },
+  { year: "2021", text: "Launched Sustainability Initiatives" },
+  { year: "2022", text: "Achieved Zero Waste Certification" },
+  { year: "2023", text: "Expanded Internationally" },
+  { year: "2024", text: "Implemented AI-Driven Techniques" },
+  { year: "2025", text: "Achieved 100% Renewable Energy" },
+];
+
+const settings2 = {
+  arrows: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3, // Show 3 slides at a time
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+  responsive: [
+    {
+      breakpoint: 1024, // For tablets
+      settings: {
+        slidesToShow: 2,
+      },
+    },
+    {
+      breakpoint: 640, // For mobile
+      settings: {
+        slidesToShow: 1,
+      },
+    },
+  ],
+};
+
   // Testimonials
 const testimonials = [
   {
@@ -162,60 +200,126 @@ const testimonials = [
   };
 
   //News
+  // const newsArticles = [
+  //   {
+  //     date: "22/02/2025",
+  //     title: "Notice of 2025 half-year financial results",
+  //     link: "#",
+  //   },
+  //   {
+  //     date: "01/01/2025",
+  //     title: "Bunge and Viterra statement on Canadian Competition Bureau report",
+  //     link: "#",
+  //   },
+  //   {
+  //     date: "11/08/2024",
+  //     title: "Notice of 2024 full-year financial results",
+  //     link: "#",
+  //   },
+  //   {
+  //     date: "24/04/2024",
+  //     title: "Notice of 2024 half-year financial results",
+  //     link: "#",
+  //   },
+  //   {
+  //     date: "14/08/2023",
+  //     title: "Viterra receives first public environmental, social, and governance rating",
+  //     link: "#",
+  //   },
+  //   {
+  //     date: "20/02/2023",
+  //     title: "Bunge and Viterra agree to create a premier diversified agribusiness company",
+  //     link: "#",
+  //   },
+  // ];
+  
+  // const settings1 = {
+  //   arrows:false,
+  //   infinite: true,
+  //   speed: 2000,
+  //   autoplay: true,         // Enable auto-slide
+  //   autoplaySpeed: 1500,    // Slide every 3 seconds
+  //   slidesToShow: 3,        // Default: Show 3 slides on Desktop
+  //   slidesToScroll: 1,
+  //   responsive: [
+  //     {
+  //       breakpoint: 768,     // Below 768px (Mobile View)
+  //       settings: {
+  //         slidesToShow: 1,   // Show only 1 card in mobile view
+  //         slidesToScroll: 1,
+  //         autoplay: true,    // Auto-slide for mobile too
+  //         autoplaySpeed: 3000,
+  //       },
+  //     },
+  //   ],
+  // };  
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedNews, setSelectedNews] = useState(null);
+
   const newsArticles = [
     {
-      date: "22/02/2025",
-      title: "Notice of 2025 half-year financial results",
-      link: "#",
+      title: "Latest Industry Trends in Sustainable Energy",
+      date: "March 15, 2025",
+      description: "Exploring the newest developments in renewable energy sources and their impact on global markets. This article discusses solar innovations, wind power advancements, and emerging storage technologies.",
+      link: "/blog/sustainable-energy-trends"
     },
     {
-      date: "01/01/2025",
-      title: "Bunge and Viterra statement on Canadian Competition Bureau report",
-      link: "#",
+      title: "How AI is Transforming Customer Service Experience",
+      date: "March 10, 2025",
+      description: "An in-depth look at how artificial intelligence is revolutionizing customer service across industries. Learn about chatbots, predictive analytics, and personalized support systems.",
+      link: "/blog/ai-customer-service"
     },
     {
-      date: "11/08/2024",
-      title: "Notice of 2024 full-year financial results",
-      link: "#",
+      title: "The Future of Remote Work: Hybrid Models",
+      date: "March 5, 2025",
+      description: "Examining how companies are implementing hybrid work models post-pandemic. This article covers productivity statistics, employee satisfaction metrics, and best practices for hybrid team management.",
+      link: "/blog/hybrid-work-models"
     },
     {
-      date: "24/04/2024",
-      title: "Notice of 2024 half-year financial results",
-      link: "#",
-    },
-    {
-      date: "14/08/2023",
-      title: "Viterra receives first public environmental, social, and governance rating",
-      link: "#",
-    },
-    {
-      date: "20/02/2023",
-      title: "Bunge and Viterra agree to create a premier diversified agribusiness company",
-      link: "#",
-    },
+      title: "Digital Transformation in Healthcare",
+      date: "February 28, 2025",
+      description: "How healthcare providers are leveraging technology to improve patient outcomes. Discover the role of telemedicine, electronic health records, and AI diagnostics in modern healthcare.",
+      link: "/blog/healthcare-digital-transformation"
+    }
   ];
-  
-  const settings1 = {
-    arrows:false,
+
+  const openModal = (news) => {
+    setSelectedNews(news);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  // Settings for desktop view (3 slides)
+  const desktopSettings = {
+    arrows: false,
+    dots: true,
     infinite: true,
-    speed: 2000,
-    autoplay: true,         // Enable auto-slide
-    autoplaySpeed: 1500,    // Slide every 3 seconds
-    slidesToShow: 3,        // Default: Show 3 slides on Desktop
+    speed: 500,
+    slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
     responsive: [
       {
-        breakpoint: 768,     // Below 768px (Mobile View)
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 1,   // Show only 1 card in mobile view
-          slidesToScroll: 1,
-          autoplay: true,    // Auto-slide for mobile too
-          autoplaySpeed: 3000,
-        },
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
       },
-    ],
-  };  
-
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
 
   // Company Clients
 const clients = [
@@ -668,7 +772,7 @@ const clients = [
                 />
 
                 {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-opacity-50 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
 
                 {/* Content */}
                 <motion.div
@@ -678,7 +782,6 @@ const clients = [
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <h3 className="text-lg font-bold">{card.title}</h3>
-                  <p className="text-sm">{card.description}</p>
 
                   {/* Button with React Router Link */}
                   <Link
@@ -742,18 +845,21 @@ const clients = [
     <div className="w-full h-96 bg-gray-100 rounded-lg mt-4 p-4 flex justify-center items-center">
       <Line data={data} options={options} />
     </div>
-    {/* Achievements Timeline */}
-      <div className="mt-8 flex flex-col gap-4 items-start sm:flex-row sm:flex-wrap sm:justify-center">
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2017:</strong> Founded in Maharashtra</span>
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2018:</strong> Achieved ISO 9001 Certification</span>
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2019:</strong> Expanded to National Markets</span>
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2020:</strong> Installed Solar Power Plant</span>
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2021:</strong> Launched Sustainability Initiatives</span>
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2022:</strong> Achieved Zero Waste Certification</span>
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2023:</strong> Expanded Internationally</span>
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2024:</strong> Implemented AI-Driven Farming Techniques</span>
-        <span className="text-gray-600 text-lg w-full sm:w-auto text-left"><strong>2025:</strong> Achieved 100% Renewable Energy Operations</span>
-      </div>
+
+    <div className="mt-8">
+      <Slider {...settings2}>
+        {achievements.map((item, index) => (
+          <div key={index} className="px-2">
+            <div className="bg-gray-100 p-4 rounded-lg shadow-md">
+              <span className="text-gray-600 text-lg block">
+                <strong>{item.year}:</strong> {item.text}
+              </span>
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
+    
   </motion.div>
 </div>
 
@@ -813,54 +919,94 @@ const clients = [
       </h2>
 
       {/* Read More Link */}
-      <div className="text-green-600 font-semibold text-right mb-4 cursor-pointer">
-        Read our articles →
-      </div>
+      <a 
+        href="https://www.linkedin.com/company/crystarasugarpvtltd/?originalSubdomain=in" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        <div className="text-green-600 font-semibold text-right mb-4 cursor-pointer hover:underline">
+          Read our articles →
+        </div>
+      </a>
+
 
       {/* Slider for Desktop | Single Card for Mobile */}
-      <Slider {...settings1}>
-      {newsArticles.map((news, index) => (
-        <div key={index} className="p-4">
-          <div className="bg-gray-100 p-4 h-[180px] rounded-lg shadow-md flex flex-col justify-between">
-            <p className="text-gray-500 text-sm">{news.date}</p>
-            <h3 className="text-sm text-gray-800 mt-2 mb-2 line-clamp-2">
-              {news.title}
-            </h3>
-            <a href={news.link} className="text-green-600 mt-2 inline-flex items-center">
-              Read more →
-            </a>
+      <Slider {...desktopSettings}>
+        {newsArticles.map((news, index) => (
+          <div key={index} className="p-4">
+            <div className="bg-gray-100 p-4 h-64 rounded-lg shadow-md flex flex-col justify-between">
+              <p className="text-gray-500 text-sm">{news.date}</p>
+              <h3 className="text-lg font-medium text-gray-800 mt-2 mb-2 line-clamp-2">
+                {news.title}
+              </h3>
+              <p className="text-gray-600 text-sm line-clamp-3">
+                {news.description.substring(0, 100)}...
+              </p>
+              <button
+                onClick={() => openModal(news)}
+                className="text-green-600 mt-4 inline-flex items-center font-medium"
+              >
+                Read more →
+              </button>
+            </div>
+          </div>
+        ))}
+      </Slider>
+
+      {/* Modal */}
+      {modalOpen && selectedNews && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4">
+          <div className="bg-white rounded-lg p-6 w-full max-w-md shadow-lg relative">
+            {/* Close Button */}
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-800"
+              onClick={closeModal}
+            >
+              ✕
+            </button>
+
+            <h2 className="text-xl font-bold text-gray-800 mb-4">
+              {selectedNews.title}
+            </h2>
+            <p className="text-gray-600 mb-2 text-sm">{selectedNews.date}</p>
+            <p className="text-gray-600">{selectedNews.description}</p>
+
+            <div className="mt-6 flex justify-end">
+              {/* <a
+                href={selectedNews.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition"
+              >
+                Read Full Article
+              </a> */}
+            </div>
           </div>
         </div>
-      ))}
-    </Slider>
-
+      )}
     </div>
 
 
-    <div className="w-full h-auto max-w-7xl mx-auto py-16 px-4">
-  <h2 className="text-2xl font-bold text-purple-400 mb-8 text-center">Our Clients</h2>
-  <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
+    <div className="w-full h-auto max-w-7xl mx-auto py-8 sm:py-16 px-2 sm:px-4">
+  <h2 className="text-xl sm:text-2xl font-bold text-purple-400 mb-4 sm:mb-8 text-center">Our Clients</h2>
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-6">
     {clients.map((client, index) => (
       <div
         key={index}
-        className="bg-white p-6 shadow-md flex flex-col items-center text-center"
+        className="bg-white shadow-md flex flex-col items-center justify-center text-center mx-auto rounded-full aspect-square p-2 sm:p-3"
         style={{
-          width: '12rem',
-          height: '6rem',
-          borderRadius: '50% / 50%',
+          width: '100%',
+          maxWidth: '10rem',
           overflow: 'hidden'
         }}
       >
-        <h3 className="text-lg font-semibold text-gray-800">{client.name}</h3>
+        <h3 className="text-xs sm:text-sm md:text-base font-semibold text-gray-800 break-words w-full">
+          {client.name}
+        </h3>
       </div>
     ))}
   </div>
 </div>
-
-
-
-
-
 
 </div>
   );
