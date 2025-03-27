@@ -7,7 +7,7 @@ function Footer() {
       <hr className="border-t-2 border-gray-300 mb-8" />
 
       <div className="container mx-auto px-6">
-        
+
         {/* Logo & Tagline */}
         <div className="text-center mb-8">
           <img src="/crlogo.jpg" alt="Crystara Sugar" className="mx-auto w-24 h-auto" />
@@ -20,7 +20,7 @@ function Footer() {
 
         {/* Footer Links in the Same Row */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8 text-center md:text-left">
-          
+
           {/* About */}
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">About</h3>
@@ -53,9 +53,9 @@ function Footer() {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-600">
               <li>
-                <Link 
-                  to="/" 
-                  className="hover:text-purple-600" 
+                <Link
+                  to="/"
+                  className="hover:text-purple-600"
                   onClick={() => document.getElementById('home').scrollIntoView({ behavior: 'smooth' })}
                 >
                   Home
@@ -79,10 +79,11 @@ function Footer() {
 
         </div>
 
-        {/* Bottom Footer */}
-        <div className="border-t border-gray-300 mt-8 pt-4 text-center text-sm text-gray-600">
-          <p>© {new Date().getFullYear()} Crystara Sugar Pvt Ltd. All Rights Reserved.</p>
-        </div>
+      </div>
+
+      {/* Bottom Footer */}
+      <div className="w-full border-t bg-purple-300 border-gray-300 pt-4 text-center text-sm text-gray-600">
+        <p>© {new Date().getFullYear()} Crystara Sugar Pvt Ltd. All Rights Reserved.</p>
       </div>
     </footer>
   );
