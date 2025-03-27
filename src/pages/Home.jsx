@@ -447,7 +447,7 @@ const clients = [
     </span>
   </h2>
   <p className="text-center text-purple-100 text-lg md:text-xl max-w-2xl mx-auto">
-    Crafting sweetness through sustainable innovation since 1995
+    Crafting sweetness through sustainable innovation since 2017
   </p>
 </motion.div>
 

@@ -36,7 +36,7 @@ function CompanyOverview() {
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
           <div className="relative w-full flex flex-col items-center p-8 text-center">
             <h1 className="text-xl md:text-5xl font-bold text-white">Company Overview</h1>
-            <p className="text-white mt-2">Sweetening Lives Since 1995</p>
+            <p className="text-white mt-2">Sweetening Lives Since 2017</p>
           </div>
         </motion.div>
 
