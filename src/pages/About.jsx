@@ -4,25 +4,25 @@ import { motion } from "framer-motion";
 // Define motion variants if not already defined
 const fadeInLeft = {
   hidden: { opacity: 0, x: -50 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { 
-      duration: 0.8, 
-      ease: "easeOut" 
-    } 
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
   },
 };
 
 const fadeInRight = {
   hidden: { opacity: 0, x: 50 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { 
-      duration: 0.8, 
-      ease: "easeOut" 
-    } 
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+      ease: "easeOut"
+    }
   },
 };
 
@@ -78,8 +78,10 @@ const CircularProgressNumber = ({ target, label }) => {
     const interval = 40;
     const steps = duration / interval;
     const increment = target / steps;
+    let isMounted = true; // Flag to check if component is mounted
 
     const timer = setInterval(() => {
+      if (!isMounted) return; // Check if component is still mounted
       startCount += increment;
       if (startCount >= target) {
         setCount(target);
@@ -89,7 +91,10 @@ const CircularProgressNumber = ({ target, label }) => {
       }
     }, interval);
 
-    return () => clearInterval(timer);
+    return () => {
+      isMounted = false; // Set flag to false when component unmounts
+      clearInterval(timer);
+    };
   }, [target]);
 
   const circumference = 2 * Math.PI * 50;
@@ -99,9 +104,7 @@ const CircularProgressNumber = ({ target, label }) => {
     <div className="flex flex-col items-center">
       <div className="relative">
         <svg className="w-24 h-24 md:w-32 md:h-32 transform rotate-90">
-          {/* Background Circle */}
           <circle cx="64" cy="64" r="50" stroke="#E5E7EB" strokeWidth="8" fill="none" />
-          {/* Animated Progress Circle */}
           <motion.circle
             cx="64"
             cy="64"
@@ -114,7 +117,6 @@ const CircularProgressNumber = ({ target, label }) => {
             animate={{ strokeDashoffset: offset }}
             transition={{ duration: 2, ease: "easeOut" }}
           />
-          {/* Centered Text */}
           <text
             x="64"
             y="64"
@@ -178,7 +180,7 @@ function About() {
             variants={fadeInLeft}
           >
             <div className="flex items-center gap-4 mb-6">
-              <motion.div 
+              <motion.div
                 className="p-3 bg-white/10 rounded-xl"
                 whileHover={{ scale: 1.1, backgroundColor: "rgba(255, 255, 255, 0.2)" }}
                 transition={{ duration: 0.3 }}
@@ -194,13 +196,13 @@ function About() {
               agriculture. We envision a world where every sugar crystal tells a story of environmental stewardship
               and social responsibility.
             </p>
-            <motion.div 
+            <motion.div
               className="space-y-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-3"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -209,7 +211,7 @@ function About() {
                 <div className="w-3 h-3 bg-purple-400 rounded-full" />
                 <span>100% Renewable Energy by 2025</span>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-3"
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
@@ -230,7 +232,7 @@ function About() {
             variants={fadeInRight}
           >
             <div className="flex items-center gap-4 mb-6">
-              <motion.div 
+              <motion.div
                 className="p-3 bg-purple-100 rounded-xl"
                 whileHover={{ scale: 1.1, backgroundColor: "rgba(167, 139, 250, 0.3)" }}
                 transition={{ duration: 0.3 }}
@@ -245,13 +247,13 @@ function About() {
               To continuously innovate in sustainable sugar production while maintaining the highest quality standards.
               We commit to:
             </p>
-            <motion.div 
+            <motion.div
               className="space-y-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -263,7 +265,7 @@ function About() {
                 </div>
                 <span>Developing 100% biodegradable packaging by 2024</span>
               </motion.div>
-              <motion.div 
+              <motion.div
                 className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -291,7 +293,7 @@ function About() {
             ],
             "image": "/aboutimg1.jpg",
             "reverse": false
-          },  
+          },
           {
             title: "Our Journey",
             description: "Starting as a small local producer, we have expanded our operations to meet international demand. With a forward-thinking approach, we continuously evolve by adapting to market trends and emerging technologies.",
@@ -302,7 +304,7 @@ function About() {
             ],
             "image": "/aboutimg2.jpg",
             "reverse": true
-          },  
+          },
           {
             title: "Our Core Values",
             description: "We uphold principles that drive sustainability, innovation, and ethical business practices.",

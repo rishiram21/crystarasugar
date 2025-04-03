@@ -90,7 +90,7 @@ function Home() {
       description: "Building long-term value for our stakeholders.",
       buttonText: "Meet Shareholders →",
       image: "/cards/card3.jpg",
-      link: "/shareholders",
+      link: "/company-overview",
     },
     {
       title: "What is Crystara",
@@ -676,7 +676,7 @@ const clients = [
         <p className="text-gray-700 text-base sm:text-lg md:text-lg leading-relaxed mb-6 sm:mb-8 md:mb-8">
         A small bite of sweets can stop wars and rejuvenate relationships. At Crystara Sugar Pvt. Ltd., 
         we understand the emotion behind sugar, ensuring quality sourcing, storage, packaging, and transportation. 
-        Since 2016, from Maharashtra’s sugar heartland, we have grown into a leading global exporter and trader of sugar.
+        Since 2017, from Maharashtra’s sugar heartland, we have grown into a leading global exporter and trader of sugar.
         </p>
         <Link to="/company-overview">
           <button className="bg-purple-700 hover:bg-purple-800 text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 rounded-full flex items-center gap-2 transition-all text-sm sm:text-base">
@@ -754,47 +754,48 @@ const clients = [
 
             {/* Cards Grid */}
             <div className="w-full flex justify-center mt-16 mb-16">
-          <div className="justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
-            {cards.map((card, index) => (
-              <motion.div
-                key={index}
-                className="relative w-80 h-72 rounded-lg overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-              >
-                {/* Background Image */}
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  className="absolute w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-opacity-50 group-hover:bg-opacity-40 transition-opacity duration-300"></div>
-
-                {/* Content */}
-                <motion.div
-                  className="absolute bottom-4 left-4 text-white transition-transform duration-300 group-hover:translate-y-[-5px]"
-                  initial={{ y: 10, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                >
-                  <h3 className="text-lg font-bold">{card.title}</h3>
-
-                  {/* Button with React Router Link */}
-                  <Link
-                    to={card.link}
-                    className="mt-2 inline-block text-sm bg-white bg-opacity-20 hover:bg-opacity-40 px-3 py-1 rounded-md transition-colors duration-300"
-                  >
-                    {card.buttonText}
-                  </Link>
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
+  <div className="justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
+    {cards.map((card, index) => (
+      <motion.div
+        key={index}
+        className="relative w-80 h-96 rounded-lg overflow-hidden shadow-lg group transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        {/* Background Image Container - Limited Height */}
+        <div className="h-2/3 overflow-hidden">
+          <img
+            src={card.image}
+            alt={card.title}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
         </div>
+
+        {/* Content Area with Solid Background */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gray-800 p-4">
+          <motion.div
+            className="text-white"
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h3 className="text-lg font-bold">{card.title}</h3>
+
+            {/* Button with React Router Link */}
+            <Link
+              to={card.link}
+              className="mt-2 inline-block text-sm bg-white bg-opacity-20 hover:bg-opacity-40 px-3 py-1 rounded-md transition-colors duration-300"
+            >
+              {card.buttonText}
+            </Link>
+          </motion.div>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</div>
 
           </div>
 

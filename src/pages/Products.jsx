@@ -203,7 +203,7 @@ function Products() {
               transition={{ duration: 0.5, ease: "easeOut" }}
               onClick={() => setSelectedProduct(product)}
             >
-              <div className="w-full h-64 overflow-hidden flex items-center justify-center">
+              <div className="w-full h-80 overflow-hidden flex items-center justify-center">
                 <img
                   src={product.image}
                   alt={product.name}
