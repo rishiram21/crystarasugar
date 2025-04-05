@@ -56,10 +56,10 @@ function Navbar() {
             
             {/* Social Links */}
             <div className="flex items-center space-x-3">
-              <a href="#" className="text-gray-600 hover:text-purple-700 transition-colors">
+              <a href="https://www.facebook.com" className="text-gray-600 hover:text-purple-700 transition-colors">
                 <FaFacebook size={16} />
               </a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">
+              <a href="https://www.twitter.com" rel="noopener noreferrer" className="hover:text-purple-600">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
@@ -67,7 +67,7 @@ function Navbar() {
               <a href="https://www.linkedin.com/company/crystarasugarpvtltd/?originalSubdomain=in" className="text-gray-600 hover:text-purple-700 transition-colors">
                 <FaInstagram size={16} />
               </a>
-              <a href="#" className="text-gray-600 hover:text-purple-700 transition-colors">
+              <a href="https://www.linkedin.com/company/crystarasugarpvtltd/?originalSubdomain=in" className="text-gray-600 hover:text-purple-700 transition-colors">
                 <FaLinkedin size={16} />
               </a>
             </div>
@@ -123,6 +123,12 @@ function Navbar() {
             >
               Products
             </Link>
+            <Link 
+              to="/contact" 
+              className={`px-3 lg:px-4 py-2 mx-1 hover:text-purple-700 transition-colors ${isActive("/contact")}`}
+            >
+              Contact Us
+            </Link>
             <Link
               to="/media"
               className={`bg-gray-200 px-3 lg:px-5 py-2 mx-1 rounded-xl shadow-md hover:bg-purple-700 hover:text-white transition-colors ${isActive("/media")}`}
@@ -170,6 +176,13 @@ function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Products
+                </Link>
+                <Link 
+                  to="/contact" 
+                  className={`px-6 py-3 hover:bg-gray-100 transition-colors ${isActive("/contact")}`} 
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact Us
                 </Link>
                 <div className="px-6 py-3">
                   <Link

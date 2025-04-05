@@ -193,61 +193,6 @@ const testimonials = [
     autoplaySpeed: 1500
   };
 
-  //News
-  // const newsArticles = [
-  //   {
-  //     date: "22/02/2025",
-  //     title: "Notice of 2025 half-year financial results",
-  //     link: "#",
-  //   },
-  //   {
-  //     date: "01/01/2025",
-  //     title: "Bunge and Viterra statement on Canadian Competition Bureau report",
-  //     link: "#",
-  //   },
-  //   {
-  //     date: "11/08/2024",
-  //     title: "Notice of 2024 full-year financial results",
-  //     link: "#",
-  //   },
-  //   {
-  //     date: "24/04/2024",
-  //     title: "Notice of 2024 half-year financial results",
-  //     link: "#",
-  //   },
-  //   {
-  //     date: "14/08/2023",
-  //     title: "Viterra receives first public environmental, social, and governance rating",
-  //     link: "#",
-  //   },
-  //   {
-  //     date: "20/02/2023",
-  //     title: "Bunge and Viterra agree to create a premier diversified agribusiness company",
-  //     link: "#",
-  //   },
-  // ];
-  
-  // const settings1 = {
-  //   arrows:false,
-  //   infinite: true,
-  //   speed: 2000,
-  //   autoplay: true,         // Enable auto-slide
-  //   autoplaySpeed: 1500,    // Slide every 3 seconds
-  //   slidesToShow: 3,        // Default: Show 3 slides on Desktop
-  //   slidesToScroll: 1,
-  //   responsive: [
-  //     {
-  //       breakpoint: 768,     // Below 768px (Mobile View)
-  //       settings: {
-  //         slidesToShow: 1,   // Show only 1 card in mobile view
-  //         slidesToScroll: 1,
-  //         autoplay: true,    // Auto-slide for mobile too
-  //         autoplaySpeed: 3000,
-  //       },
-  //     },
-  //   ],
-  // };  
-
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedNews, setSelectedNews] = useState(null);
 
@@ -384,38 +329,36 @@ const clients = [
     <div className="w-full overflow-hidden">
       {/* 🔹 Full-Width Image Slider */}
       <motion.div
-      className="w-full h-screen sm:h-screen md:h-screen lg:h-screen xl:h-screen 2xl:h-screen max-sm:h-[50vh] relative overflow-hidden"
-      initial="hidden"
-      animate="visible"
-      variants={fadeInUp}
-    >
-      <Swiper
-        modules={[Pagination, Autoplay]}
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        loop={true}
-        speed={1000}
-        className="w-full h-full"
-      >
-        {[...Array(10)].map((_, index) => (
-          <SwiperSlide key={index} className="overflow-hidden">
-            <motion.img
-              src={`/imgslide${index + 1}.jpg`}
-              alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover"
-              initial={{ scale: 1 }}
-              animate={{ scale: [1, 1.05, 1] }} // Reduced scale from 1.1 to 1.05
-              transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </motion.div>
+  className="w-full h-screen sm:h-screen md:h-screen lg:h-screen xl:h-screen 2xl:h-screen max-sm:h-[50vh] relative overflow-hidden"
+  initial="hidden"
+  animate="visible"
+  variants={fadeInUp}
+>
+  <Swiper
+    modules={[Pagination, Autoplay]}
+    pagination={{ clickable: true }}
+    autoplay={{ delay: 3000, disableOnInteraction: false }}
+    loop={true}
+    speed={1000}
+    className="w-full h-full"
+  >
+    {[...Array(10)].map((_, index) => (
+      <SwiperSlide key={index} className="overflow-hidden">
+        <motion.img
+          src={`/imgslide${index + 1}.jpg`}
+          alt={`Slide ${index + 1}`}
+          className="w-full h-full object-cover"
+          initial={{ scale: 1 }}
+          animate={{ scale: [1, 1.05, 1] }} // Reduced scale from 1.1 to 1.05
+          transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
+        />
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</motion.div>
 
 
-
-
-      <div className="relative w-full min-h-screen">
+  <div className="relative w-full min-h-screen">
   {/* Parallax Background */}
   <div className="fixed inset-0 -z-10">
     <img

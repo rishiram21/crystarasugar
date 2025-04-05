@@ -12,7 +12,7 @@ const events = [
 
 const videos = [
   { title: "Video 1", thumbnail: "/thumbnail.jpg", src: "/videogallery1.mp4" },
-  { title: "Video 2", thumbnail: "/thumbnail.jpg", src: "/videogallery2.mp4" },
+  { title: "Video 2", thumbnail: "/thumbnail.jpg", src: "/videogallery4.mp4" },
   { title: "Video 3", thumbnail: "/thumbnail.jpg", src: "/videogallery3.mp4" },
 ];
 
@@ -65,7 +65,7 @@ function Media() {
   }, []);
 
   return (
-    <motion.div className="bg-purple min-h-screen py-12" initial="hidden" animate="visible" variants={staggerContainer}>
+    <motion.div className="bg-purple min-h-screen" initial="hidden" animate="visible" variants={staggerContainer}>
       <div className="container mx-auto px-6 md:px-20 py-8">
         <motion.div className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-5 bg-cover bg-center" style={{ backgroundImage: "url('/mediaimg.jpg')", minHeight: "200px" }} variants={fadeInUp}>
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
