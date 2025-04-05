@@ -10,11 +10,22 @@ function Products() {
     window.scrollTo(0, 0);
   }, []);
 
-  const products = [
+  const exportProducts = [
     {
-      name: "Brown Sugar",
-      image: "/brown-sugar.jpg",
-      description: "Brown sugar is refined sugar with molasses, giving it a moist texture and rich caramel-like flavor.",
+      name: "S30 Sugar",
+      image: "/s30-sugar.jpg",
+      description: "S30 sugar is a medium-grade refined sugar with small, uniform crystals, commonly used in household.",
+      specs: [
+        "Moisture Content: 3.5%",
+        "Packaging: 500g, 1kg, 5kg",
+        "Shelf Life: 18 months",
+        "Certification: Organic Certified"
+      ]
+    },
+    {
+      name: "M30 Sugar",
+      image: "/m30-sugar.jpg",
+      description: "M30 sugar is a refined white sugar with medium-sized crystals, commonly used in household and industrial applications.",
       specs: [
         "Moisture Content: 3.5%",
         "Packaging: 500g, 1kg, 5kg",
@@ -34,6 +45,20 @@ function Products() {
       ]
     },
     {
+      name: "Raw Sugar",
+      image: "/raw-sugar.jpg",
+      description: "Raw sugar is a minimally processed sugar derived from sugarcane, retaining some molasses for a golden hue.",
+      specs: [
+        "Moisture Content: Varies",
+        "Packaging: 500g, 1kg, 5kg",
+        "Shelf Life: 24 months",
+        "Certification: Organic Certified"
+      ]
+    }
+  ];
+
+  const importProducts = [
+    {
       name: "Banana",
       image: "/banana.jpg",
       description: "Fresh bananas are a rich source of essential nutrients, offering a naturally sweet taste and creamy texture.",
@@ -45,91 +70,25 @@ function Products() {
       ]
     },
     {
-      name: "S30 Sugar",
-      image: "/s30-sugar.jpg",
-      description: "S30 sugar is a medium-grade refined sugar with small, uniform crystals, commonly used in household.",
+      name: "Apple",
+      image: "/apple.jpg",
+      description: "Fresh apples are crisp and juicy fruits rich in fiber and antioxidants, with a perfect balance of sweetness and acidity.",
       specs: [
-        "Moisture Content: 3.5%",
-        "Packaging: 500g, 1kg, 5kg",
-        "Shelf Life: 18 months",
+        "Variety: Royal Gala, Honeycrisp, Granny Smith",
+        "Packaging: 1kg, 5kg",
+        "Shelf Life: 2-4 weeks (refrigerated)",
+        "Certification: Global GAP"
+      ]
+    },
+    {
+      name: "Kiwi",
+      image: "/kiwi.jpg",
+      description: "Kiwi fruits are vibrant green with tiny black seeds, offering a unique sweet-tart flavor and exceptional vitamin C content.",
+      specs: [
+        "Variety: Hayward, Gold",
+        "Packaging: 500g, 1kg",
+        "Shelf Life: 2-3 weeks (refrigerated)",
         "Certification: Organic Certified"
-      ]
-    },
-    {
-      name: "Raw Sugar",
-      image: "/raw-sugar.jpg",
-      description: "Raw sugar is a minimally processed sugar derived from sugarcane, retaining some molasses for a golden hue.",
-      specs: [
-        "Moisture Content: Varies",
-        "Packaging: 500g, 1kg, 5kg",
-        "Shelf Life: 24 months",
-        "Certification: Organic Certified"
-      ]
-    },
-    {
-      name: "M30 Sugar",
-      image: "/m30-sugar.jpg",
-      description: "M30 sugar is a refined white sugar with medium-sized crystals, commonly used in household and industrial applications.",
-      specs: [
-        "Moisture Content: 3.5%",
-        "Packaging: 500g, 1kg, 5kg",
-        "Shelf Life: 18 months",
-        "Certification: Organic Certified"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
       ]
     },
     {
@@ -145,25 +104,73 @@ function Products() {
     }
   ];
 
+  // Combine all products for navigation purposes
+  const allProducts = [...exportProducts, ...importProducts];
+
   const handleNavigation = (newDirection) => {
     setDirection(newDirection);
-    let currentIndex = products.findIndex(p => p.name === selectedProduct.name);
-    let newIndex = (currentIndex + newDirection + products.length) % products.length;
+    let currentIndex = allProducts.findIndex(p => p.name === selectedProduct.name);
+    let newIndex = (currentIndex + newDirection + allProducts.length) % allProducts.length;
 
     // Skip "Coming Soon" products
-    while (products[newIndex].name === "Coming Soon") {
-      newIndex = (newIndex + newDirection + products.length) % products.length;
+    while (allProducts[newIndex].name === "Coming Soon") {
+      newIndex = (newIndex + newDirection + allProducts.length) % allProducts.length;
       if (newIndex === currentIndex) break; // Avoid infinite loop
     }
 
-    setSelectedProduct(products[newIndex]);
+    setSelectedProduct(allProducts[newIndex]);
   };
 
+  const renderProductGrid = (products, title) => (
+    <div className="mb-16">
+      <h2 className="text-3xl font-bold text-white mb-8 text-left">{title}</h2>
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0, y: 50 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { staggerChildren: 0.2, duration: 0.5 },
+          },
+        }}
+      >
+        {products.map((product, index) => (
+          <motion.div
+            key={index}
+            className="relative bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer group"
+            whileHover={{ scale: 1.05 }}
+            variants={{
+              hidden: { opacity: 0, y: 50 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            onClick={() => product.name !== "Coming Soon" && setSelectedProduct(product)}
+          >
+            <div className="w-full h-64 overflow-hidden flex items-center justify-center">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-cover transition-all duration-500 group-hover:opacity-50"
+              />
+            </div>
+
+            <h3 className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-500">
+              {product.name}
+            </h3>
+          </motion.div>
+        ))}
+      </motion.div>
+    </div>
+  );
+
   return (
-    <div className="relative min-h-screen py-12 px-4 md:px-20 bg-cover bg-center mt-12" style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}>
+    <div className="relative min-h-screen py-12 px-4 md:px-12 bg-cover bg-center" style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}>
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10">
-        {/* About Us Header */}
+        {/* Products Header */}
         <motion.div
           className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
           style={{ backgroundImage: "url('/sugarcane/sugarcane2.jpg')" }}
@@ -174,49 +181,15 @@ function Products() {
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
           <div className="relative w-full flex flex-col items-center p-8 text-center">
             <h1 className="text-2xl md:text-5xl font-bold text-white">Our Products</h1>
+            <p className="text-lg text-gray-200 mt-4">Quality exports and imported goods to meet your needs</p>
           </div>
         </motion.div>
 
-        {/* Product Grid with Animation */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0, y: 50 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: { staggerChildren: 0.2, duration: 0.5 },
-            },
-          }}
-        >
-          {products.map((product, index) => (
-            <motion.div
-              key={index}
-              className="relative bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer group"
-              whileHover={{ scale: 1.05 }}
-              variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              onClick={() => setSelectedProduct(product)}
-            >
-              <div className="w-full h-80 overflow-hidden flex items-center justify-center">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-full object-cover transition-all duration-500 group-hover:opacity-50"
-                />
-              </div>
+        {/* Export Products Section */}
+        {renderProductGrid(exportProducts, "Our Exports")}
 
-              <h3 className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-500">
-                {product.name}
-              </h3>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Import Products Section */}
+        {renderProductGrid(importProducts, "Our Imports")}
 
         {/* Product Detail Overlay */}
         <AnimatePresence>

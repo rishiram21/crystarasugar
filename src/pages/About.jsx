@@ -140,7 +140,7 @@ function About() {
   }, []);
 
   return (
-    <div className="bg-purple-50 min-h-screen py-12 px-4 md:px-20">
+    <div className="bg-purple-50 min-h-screen px-4 md:px-20">
       <div className="container mx-auto py-8">
         {/* About Us Header */}
         <motion.div
@@ -225,67 +225,67 @@ function About() {
 
           {/* Mission Card - Right Animation */}
           <motion.div
-            className="bg-white/95 p-8 rounded-3xl shadow-2xl"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInRight}
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <motion.div
-                className="p-3 bg-purple-100 rounded-xl"
-                whileHover={{ scale: 1.1, backgroundColor: "rgba(167, 139, 250, 0.3)" }}
-                transition={{ duration: 0.3 }}
-              >
-                <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </motion.div>
-              <h3 className="text-xl md:text-3xl font-bold text-purple-800">Our Mission</h3>
-            </div>
-            <p className="text-base md:text-lg leading-relaxed text-gray-700 mb-6">
-              To continuously innovate in sustainable sugar production while maintaining the highest quality standards.
-              We commit to:
-            </p>
-            <motion.div
-              className="space-y-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-            >
-              <motion.div
-                className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.8, duration: 0.5 }}
-                whileHover={{ scale: 1.03, backgroundColor: "rgba(233, 213, 255, 0.5)" }}
-              >
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">
-                  01
-                </div>
-                <span>Developing 100% biodegradable packaging by 2024</span>
-              </motion.div>
-              <motion.div
-                className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 1, duration: 0.5 }}
-                whileHover={{ scale: 1.03, backgroundColor: "rgba(233, 213, 255, 0.5)" }}
-              >
-                <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">
-                  02
-                </div>
-                <span>Tripling farmer income through precision agriculture</span>
-              </motion.div>
-            </motion.div>
-          </motion.div>
+      className="bg-white/95 p-8 rounded-3xl shadow-2xl"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInRight}
+    >
+      <div className="flex items-center gap-4 mb-6">
+        <motion.div
+          className="p-3 bg-purple-100 rounded-xl"
+          whileHover={{ scale: 1.1, backgroundColor: "rgba(167, 139, 250, 0.3)" }}
+          transition={{ duration: 0.3 }}
+        >
+          <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </motion.div>
+        <h3 className="text-xl md:text-3xl font-bold text-purple-800">Our Mission</h3>
+      </div>
+      <p className="text-base md:text-lg leading-relaxed text-gray-700 mb-6">
+        To continuously innovate in sustainable sugar production while maintaining the highest quality standards.
+        We commit to:
+      </p>
+      <motion.div
+        className="space-y-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.6, duration: 0.8 }}
+      >
+        <motion.div
+          className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+          whileHover={{ scale: 1.03, backgroundColor: "rgba(233, 213, 255, 0.5)" }}
+        >
+          <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">
+            01
+          </div>
+          <span>Developing 100% biodegradable packaging by 2024</span>
+        </motion.div>
+        <motion.div
+          className="flex items-center gap-3 p-4 bg-purple-50 rounded-xl"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 1, duration: 0.5 }}
+          whileHover={{ scale: 1.03, backgroundColor: "rgba(233, 213, 255, 0.5)" }}
+        >
+          <div className="flex-shrink-0 w-8 h-8 bg-purple-600 text-white rounded-lg flex items-center justify-center">
+            02
+          </div>
+          <span>Tripling farmer income through precision agriculture</span>
+        </motion.div>
+      </motion.div>
+    </motion.div>
         </div>
 
         {/* Rest of the component... */}
         {[
           {
             title: "Who We Are",
-            description: "Started as a small local producer, we have expanded our operations to meet international demand. With a commitment to excellence, we continuously evolve with market trends and emerging technologies.",
+            description: "Started as a small local Trader, Exporter and Manufacturer, we have expanded our operations to meet international demand. With a commitment to excellence, we continuously evolve with market trends and emerging technologies.",
             subpoints: [
               "Founded on the principles of quality and excellence.",
               "Committed to delivering the finest sugar products.",
@@ -296,9 +296,9 @@ function About() {
           },
           {
             title: "Our Journey",
-            description: "Starting as a small local producer, we have expanded our operations to meet international demand. With a forward-thinking approach, we continuously evolve by adapting to market trends and emerging technologies.",
+            description: "Starting as a small local Trader, Exporter and Manufacturer, we have expanded our operations to meet international demand. With a forward-thinking approach, we continuously evolve by adapting to market trends and emerging technologies.",
             subpoints: [
-              "Started as a small local producer.",
+              "Started as a small local Trader, Exporter and Manufacturer.",
               "Expanded operations to meet international demand.",
               "Continuously evolving with market trends and technologies."
             ],

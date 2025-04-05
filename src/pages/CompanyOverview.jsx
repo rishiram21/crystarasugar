@@ -22,7 +22,7 @@ function CompanyOverview() {
   };
 
   return (
-    <div className="min-h-screen py-12 bg-purple-50">
+    <div className="min-h-screen bg-purple-50">
       <div className="container mx-auto px-6 md:px-20 py-8">
 
         {/* Hero Section */}
@@ -69,40 +69,17 @@ function CompanyOverview() {
     <ul className="space-y-3">
       <li className="flex items-center">
         <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2017: Founded in Maharashtra</span>
+        <span className="text-gray-600">2020: International Office Establishment</span>
       </li>
       <li className="flex items-center">
         <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2018: Achieved ISO 9001 Certification</span>
+        <span className="text-gray-600">2023: Expand International</span>
       </li>
       <li className="flex items-center">
         <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2019: Expanded to National Markets</span>
+        <span className="text-gray-600">2023: Sustainability</span>
       </li>
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2020: Installed Solar Power Plant</span>
-      </li>
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2021: Launched Sustainability Initiatives</span>
-      </li>
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2022: Achieved Zero Waste Certification</span>
-      </li>
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2023: Expanded Internationally</span>
-      </li>
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2024: Implemented AI-Driven Farming Techniques</span>
-      </li>
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2025: Achieved 100% Renewable Energy Operations</span>
-      </li>
+      
     </ul>
   </div>
 </motion.div>

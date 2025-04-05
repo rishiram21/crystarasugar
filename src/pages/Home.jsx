@@ -128,15 +128,9 @@ const options = {
 };
 
 const achievements = [
-  { year: "2017", text: "Founded in Maharashtra" },
-  { year: "2018", text: "Achieved ISO 9001 Certification" },
-  { year: "2019", text: "Expanded to National Markets" },
-  { year: "2020", text: "Installed Solar Power Plant" },
-  { year: "2021", text: "Launched Sustainability Initiatives" },
-  { year: "2022", text: "Achieved Zero Waste Certification" },
-  { year: "2023", text: "Expanded Internationally" },
-  { year: "2024", text: "Implemented AI-Driven Techniques" },
-  { year: "2025", text: "Achieved 100% Renewable Energy" },
+  { year: "2021", text: "International Office Establishment" },
+  { year: "2023", text: "Expand International" },
+  { year: "2023", text: "Sustainability" }
 ];
 
 const settings2 = {
@@ -403,14 +397,14 @@ const clients = [
         speed={1000}
         className="w-full h-full"
       >
-        {[...Array(14)].map((_, index) => (
+        {[...Array(10)].map((_, index) => (
           <SwiperSlide key={index} className="overflow-hidden">
             <motion.img
               src={`/imgslide${index + 1}.jpg`}
               alt={`Slide ${index + 1}`}
               className="w-full h-full object-cover"
               initial={{ scale: 1 }}
-              animate={{ scale: [1, 1.1, 1] }}
+              animate={{ scale: [1, 1.05, 1] }} // Reduced scale from 1.1 to 1.05
               transition={{ duration: 5, repeat: Infinity, repeatType: "loop" }}
             />
           </SwiperSlide>
@@ -752,8 +746,8 @@ const clients = [
       </p>
     </motion.div>
 
-            {/* Cards Grid */}
-            <div className="w-full flex justify-center mt-16 mb-16">
+  {/* Cards Grid */}
+  <div className="w-full flex justify-center mt-16 mb-16">
   <div className="justify-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
     {cards.map((card, index) => (
       <motion.div
@@ -797,7 +791,7 @@ const clients = [
   </div>
 </div>
 
-          </div>
+  </div>
 
   {/* Floating Leaves Animation */}
   {/* <div className="absolute inset-0 overflow-hidden">
