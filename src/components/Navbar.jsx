@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBars, FaTimes, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope, FaPhone } from "react-icons/fa";
+import { FaBars, FaTimes, FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope, FaPhone, FaMobile, FaPhoneAlt } from "react-icons/fa";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -45,8 +45,8 @@ function Navbar() {
             {/* Contact Information - Now side by side on all desktop views */}
             <div className="flex flex-row items-center space-x-4 text-sm mb-2 sm:mb-0">
               <div className="flex items-center">
-                <FaPhone className="text-purple-700 mr-2 text-xs" />
-                <span className="text-xs sm:text-sm">+91 98604 33364</span>
+                <FaPhoneAlt className="text-purple-700 mr-2 text-xs" />
+                <span className="text-xs sm:text-sm">+91 99234 08706</span>
               </div>
               <div className="flex items-center">
                 <FaEnvelope className="text-purple-700 mr-2 text-xs" />
@@ -56,18 +56,18 @@ function Navbar() {
             
             {/* Social Links */}
             <div className="flex items-center space-x-3">
-              <a href="https://www.facebook.com" className="text-gray-600 hover:text-purple-700 transition-colors">
+              <a href="https://www.facebook.com" target="_blank" className="text-gray-600 hover:text-purple-700 transition-colors">
                 <FaFacebook size={16} />
               </a>
-              <a href="https://www.twitter.com" rel="noopener noreferrer" className="hover:text-purple-600">
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                 </svg>
               </a>
-              <a href="https://www.linkedin.com/company/crystarasugarpvtltd/?originalSubdomain=in" className="text-gray-600 hover:text-purple-700 transition-colors">
+              <a href="https://www.linkedin.com/company/crystarasugarpvtltd/?originalSubdomain=in" target="_blank" className="text-gray-600 hover:text-purple-700 transition-colors">
                 <FaInstagram size={16} />
               </a>
-              <a href="https://www.linkedin.com/company/crystarasugarpvtltd/?originalSubdomain=in" className="text-gray-600 hover:text-purple-700 transition-colors">
+              <a href="https://www.linkedin.com/company/crystarasugarpvtltd/?originalSubdomain=in" target="_blank" className="text-gray-600 hover:text-purple-700 transition-colors">
                 <FaLinkedin size={16} />
               </a>
             </div>

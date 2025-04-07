@@ -125,7 +125,7 @@ function Products() {
     <div className="mb-16">
       <h2 className="text-3xl font-bold text-white mb-8 text-left">{title}</h2>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
         initial="hidden"
         animate="visible"
         variants={{
@@ -140,7 +140,7 @@ function Products() {
         {products.map((product, index) => (
           <motion.div
             key={index}
-            className="relative bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer group"
+            className="relative bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer group h-64 sm:h-56 md:h-64"
             whileHover={{ scale: 1.05 }}
             variants={{
               hidden: { opacity: 0, y: 50 },
@@ -149,7 +149,7 @@ function Products() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             onClick={() => product.name !== "Coming Soon" && setSelectedProduct(product)}
           >
-            <div className="w-full h-64 overflow-hidden flex items-center justify-center">
+            <div className="w-full h-full overflow-hidden flex items-center justify-center">
               <img
                 src={product.image}
                 alt={product.name}
@@ -157,7 +157,7 @@ function Products() {
               />
             </div>
 
-            <h3 className="absolute inset-0 flex items-center justify-center text-2xl font-bold text-white bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-500">
+            <h3 className="absolute inset-0 flex items-center justify-center text-xl sm:text-2xl font-bold text-white bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-500 px-2 text-center">
               {product.name}
             </h3>
           </motion.div>
@@ -167,21 +167,21 @@ function Products() {
   );
 
   return (
-    <div className="relative min-h-screen py-12 px-4 md:px-12 bg-cover bg-center" style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}>
+    <div className="relative min-h-screen pt-10 pb-12 px-4 md:px-12 bg-cover bg-center" style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}>
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10">
         {/* Products Header */}
         <motion.div
-          className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
+          className="relative w-full h-36 md:h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
           style={{ backgroundImage: "url('/sugarcane/sugarcane2.jpg')" }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
-          <div className="relative w-full flex flex-col items-center p-8 text-center">
+          <div className="relative w-full flex flex-col items-center p-4 md:p-8 text-center">
             <h1 className="text-2xl md:text-5xl font-bold text-white">Our Products</h1>
-            <p className="text-lg text-gray-200 mt-4">Quality exports and imported goods to meet your needs</p>
+            <p className="text-sm md:text-lg text-gray-200 mt-2 md:mt-4">Quality exports and imported goods to meet your needs</p>
           </div>
         </motion.div>
 
@@ -195,28 +195,34 @@ function Products() {
         <AnimatePresence>
           {selectedProduct && (
             <motion.div
-              className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50"
+              className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 overflow-y-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              onClick={(e) => {
+                if (e.target === e.currentTarget) {
+                  setSelectedProduct(null);
+                }
+              }}
             >
               <motion.div
                 key={selectedProduct.name}
-                className="bg-white rounded-xl max-w-2xl w-full p-8 relative"
+                className="bg-white rounded-xl max-w-2xl w-full p-4 md:p-8 relative my-8 md:my-0"
                 initial={{ x: direction === 1 ? 100 : -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: direction === 1 ? -100 : 100, opacity: 0 }}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                onClick={(e) => e.stopPropagation()}
               >
                 <button
-                  className="absolute top-4 right-4 text-2xl text-gray-600"
+                  className="absolute top-2 right-2 md:top-4 md:right-4 text-2xl text-gray-600 z-10 bg-white rounded-full w-8 h-8 flex items-center justify-center"
                   onClick={() => setSelectedProduct(null)}
                 >
                   &times;
                 </button>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="w-full h-64 overflow-hidden flex items-center justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                  <div className="w-full h-48 md:h-64 overflow-hidden flex items-center justify-center">
                     <img
                       src={selectedProduct.image}
                       alt={selectedProduct.name}
@@ -225,12 +231,12 @@ function Products() {
                   </div>
 
                   <div>
-                    <h2 className="text-3xl font-bold mb-4">{selectedProduct.name}</h2>
-                    <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
+                    <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4">{selectedProduct.name}</h2>
+                    <p className="text-gray-600 mb-2 md:mb-4 text-sm md:text-base">{selectedProduct.description}</p>
 
-                    <div className="space-y-2">
-                      <h4 className="font-bold">Specifications:</h4>
-                      <ul className="list-disc pl-6">
+                    <div className="space-y-1 md:space-y-2">
+                      <h4 className="font-bold text-sm md:text-base">Specifications:</h4>
+                      <ul className="list-disc pl-5 md:pl-6 text-sm md:text-base">
                         {selectedProduct.specs.map((spec, i) => (
                           <li key={i} className="text-gray-600">{spec}</li>
                         ))}
@@ -239,18 +245,18 @@ function Products() {
                   </div>
                 </div>
 
-                <div className="flex justify-between mt-6">
+                <div className="flex justify-between mt-4 md:mt-6">
                   <button
-                    className="text-purple-700 flex items-center"
+                    className="text-purple-700 flex items-center text-sm md:text-base"
                     onClick={() => handleNavigation(-1)}
                   >
-                    <FaChevronLeft className="mr-2" /> Previous
+                    <FaChevronLeft className="mr-1 md:mr-2" /> Previous
                   </button>
                   <button
-                    className="text-purple-700 flex items-center"
+                    className="text-purple-700 flex items-center text-sm md:text-base"
                     onClick={() => handleNavigation(1)}
                   >
-                    Next <FaChevronRight className="ml-2" />
+                    Next <FaChevronRight className="ml-1 md:ml-2" />
                   </button>
                 </div>
               </motion.div>

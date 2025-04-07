@@ -63,26 +63,26 @@ function CompanyOverview() {
           </motion.div>
 
          {/* Milestones */}
-<motion.div variants={fadeIn} className="space-y-6">
-  <div className="bg-white p-6 rounded-xl shadow-md">
-    <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Milestones</h3>
-    <ul className="space-y-3">
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2020: International Office Establishment</span>
-      </li>
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2023: Expand International</span>
-      </li>
-      <li className="flex items-center">
-        <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
-        <span className="text-gray-600">2023: Sustainability</span>
-      </li>
-      
-    </ul>
-  </div>
-</motion.div>
+        <motion.div variants={fadeIn} className="space-y-6">
+          <div className="bg-white p-6 rounded-xl shadow-md">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">Key Milestones</h3>
+            <ul className="space-y-3">
+              <li className="flex items-center">
+                <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+                <span className="text-gray-600">2020: International Office Establishment</span>
+              </li>
+              <li className="flex items-center">
+                <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+                <span className="text-gray-600">2023: Expand International</span>
+              </li>
+              <li className="flex items-center">
+                <div className="h-2 w-2 bg-purple-500 rounded-full mr-3"></div>
+                <span className="text-gray-600">2023: Sustainability</span>
+              </li>
+              
+            </ul>
+          </div>
+        </motion.div>
 
         </motion.div>
 

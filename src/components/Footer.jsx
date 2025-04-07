@@ -53,7 +53,7 @@ function Footer() {
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">About</h3>
             <ul className="space-y-2 text-gray-600">
-              <li><Link to="/profile" className="hover:text-purple-600">Profile</Link></li>
+              {/* <li><Link to="/profile" className="hover:text-purple-600">Profile</Link></li> */}
               <li><Link to="/about" className="hover:text-purple-600">Crystara Sugar Pvt Ltd</Link></li>
             </ul>
           </div>
@@ -81,7 +81,7 @@ function Footer() {
           {/* Get in Touch */}
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
-            <p className="text-gray-600"><strong>Phone:</strong> +91 98604 33364</p>
+            <p className="text-gray-600"><strong>Phone:</strong> +91 99234 08706 </p>
             <p className="text-gray-600"><strong>Email:</strong> contact@crystarasugar.com</p>
             <p className="text-gray-600">
               <strong>Address:</strong> 845, Gear's Imperium Rise, Biotech Park, Hinjewadi, Pune 411 057
