@@ -85,10 +85,11 @@ function Footer() {
           {/* Get in Touch */}
           <div className="md:w-full">
             <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
-            <p className="text-gray-600"><strong>Phone:</strong> +91 99234 08706 </p>
-            <p className="text-gray-600"><strong>Email:</strong> contact@crystarasugar.com</p>
+            <p className="text-gray-600"><strong>Phone: </strong> +91 99234 08706 </p>
+            <p className="text-gray-600"><strong>Email: </strong> contact@crystarasugar.com</p>
             <p className="text-gray-600">
-              <strong>Address:</strong> 845, Gear's Imperium Rise, Biotech Park, Hinjewadi, Pune 411 057
+              <strong>Address: </strong> 
+              845, Gear's Imperium Rise, Hinjawadi Rajiv Gandhi Infotech Park, Near Wipro Circle, Hinjawadi Phase 2 ,Pune - 411057
             </p>
           </div>
 
