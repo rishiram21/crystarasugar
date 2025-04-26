@@ -27,8 +27,8 @@ function CompanyOverview() {
 
         {/* Hero Section */}
         <motion.div
-          className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
-          style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}
+          className="relative w-full h-36 md:h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
+          style={{ backgroundImage: "url('/banner/companyimg.jpg')" }}
           initial="hidden"
           animate="visible"
           variants={fadeIn}

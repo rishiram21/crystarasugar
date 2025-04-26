@@ -164,21 +164,21 @@ const testimonials = [
     author: "Rajesh Sharma",
     designation: "Supply Chain Manager",
     company: "GreenLeaf Foods",
-    image: "/person1.jpg",
+    image: "/testimonial/person1.jpg",
   },
   {
     text: "The service and efficiency at Crystara Sugar are unparalleled. Our production process has improved significantly due to their timely deliveries.",
     author: "Meera Patel",
     designation: "Production Manager",
     company: "SweetTreats Bakery",
-    image: "/person2.jpg",
+    image: "/testimonial/person2.jpg",
   },
   {
     text: "Crystara's focus on sustainability and customer satisfaction makes them the best choice for businesses like ours. Highly recommended!",
     author: "Amit Verma",
     designation: "Operations Director",
     company: "FreshBite Organics",
-    image: "/person3.jpg",
+    image: "/testimonial/person3.jpg",
   },
 ];
 
@@ -398,15 +398,16 @@ const clients = [
           initial="hidden"
           whileInView="visible"
         >
+          {/* group-hover:-translate-y-2 */}
           <div className="absolute inset-0 bg-purple-500/20 rounded-3xl transform -rotate-3 group-hover:rotate-0 transition-all" />
           <video
-            className="w-full h-96 object-cover rounded-3xl shadow-2xl relative transform group-hover:-translate-y-2 transition-all"
+            className="w-full h-96 object-cover rounded-3xl shadow-2xl relative transform  transition-all"
             autoPlay
             loop
             muted
             playsInline
           >
-            <source src="aboutvideo.mp4" type="video/mp4" />
+            <source src="/videos/aboutvideo.mp4" type="video/mp4" />
           </video>
         </motion.div>
 

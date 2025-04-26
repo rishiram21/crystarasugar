@@ -13,7 +13,7 @@ function Products() {
   const exportProducts = [
     {
       name: "S30 Sugar",
-      image: "/s30-sugar.jpg",
+      image: "/products/s30-sugar.jpg",
       description: "S30 sugar is a medium-grade refined sugar with small, uniform crystals, commonly used in household.",
       specs: [
         "Moisture Content: 3.5%",
@@ -24,7 +24,7 @@ function Products() {
     },
     {
       name: "M30 Sugar",
-      image: "/m30-sugar.jpg",
+      image: "/products/m30-sugar.jpg",
       description: "M30 sugar is a refined white sugar with medium-sized crystals, commonly used in household and industrial applications.",
       specs: [
         "Moisture Content: 3.5%",
@@ -35,7 +35,7 @@ function Products() {
     },
     {
       name: "White Refined Sugar",
-      image: "/white-sugar.jpg",
+      image: "/products/white-sugar.jpg",
       description: "White sugar is a refined sweetener made from sugarcane or sugar beets, commonly used in cooking, and baking.",
       specs: [
         "Purity: 99.8%",
@@ -46,7 +46,7 @@ function Products() {
     },
     {
       name: "Raw Sugar",
-      image: "/raw-sugar.jpg",
+      image: "/products/raw-sugar.jpg",
       description: "Raw sugar is a minimally processed sugar derived from sugarcane, retaining some molasses for a golden hue.",
       specs: [
         "Moisture Content: Varies",
@@ -60,7 +60,7 @@ function Products() {
   const importProducts = [
     {
       name: "Banana",
-      image: "/banana.jpg",
+      image: "/products/banana.jpg",
       description: "Fresh bananas are a rich source of essential nutrients, offering a naturally sweet taste and creamy texture.",
       specs: [
         "Moisture Content: 74-79%",
@@ -71,7 +71,7 @@ function Products() {
     },
     {
       name: "Apple",
-      image: "/apple.jpg",
+      image: "/products/apple.jpg",
       description: "Fresh apples are crisp and juicy fruits rich in fiber and antioxidants, with a perfect balance of sweetness and acidity.",
       specs: [
         "Variety: Royal Gala, Honeycrisp, Granny Smith",
@@ -82,7 +82,7 @@ function Products() {
     },
     {
       name: "Kiwi",
-      image: "/kiwi.jpg",
+      image: "/products/kiwi.jpg",
       description: "Kiwi fruits are vibrant green with tiny black seeds, offering a unique sweet-tart flavor and exceptional vitamin C content.",
       specs: [
         "Variety: Hayward, Gold",
@@ -93,7 +93,7 @@ function Products() {
     },
     {
       name: "Coming Soon",
-      image: "/comingsoon.jpg",
+      image: "/products/comingsoon.jpg",
       description: "",
       specs: [
         "Moisture Content: NA",
@@ -173,7 +173,7 @@ function Products() {
         {/* Products Header */}
         <motion.div
           className="relative w-full h-36 md:h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
-          style={{ backgroundImage: "url('/sugarcane/sugarcane2.jpg')" }}
+          style={{ backgroundImage: "url('/banner/productimg.jpg')" }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -181,7 +181,7 @@ function Products() {
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
           <div className="relative w-full flex flex-col items-center p-4 md:p-8 text-center">
             <h1 className="text-2xl md:text-5xl font-bold text-white">Our Products</h1>
-            <p className="text-sm md:text-lg text-gray-200 mt-2 md:mt-4">Quality exports and imported goods to meet your needs</p>
+            <p className="text-white mt-2">Quality exports and imported goods to meet your needs</p>
           </div>
         </motion.div>
 

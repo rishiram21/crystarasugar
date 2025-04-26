@@ -111,7 +111,7 @@ function Contact() {
               Get In Touch
             </motion.h1>
             <motion.p
-              className="text-white/90 mt-4 text-lg max-w-xl"
+              className="text-white mt-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}

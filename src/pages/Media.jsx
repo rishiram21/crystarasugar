@@ -2,18 +2,18 @@ import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const events = [
-  { title: "Event 1", image: "/event1.jpg" },
-  { title: "Event 2", image: "/event2.jpg" },
-  { title: "Event 3", image: "/event3.jpg" },
-  { title: "Event 4", image: "/event4.jpg" },
-  { title: "Event 5", image: "/event5.jpg" },
-  { title: "Event 6", image: "/event6.jpg" },
+  { title: "Event 1", image: "/event/event1.jpg" },
+  { title: "Event 2", image: "/event/event2.jpg" },
+  { title: "Event 3", image: "/event/event3.jpg" },
+  { title: "Event 4", image: "/event/event4.jpg" },
+  { title: "Event 5", image: "/event/event5.jpg" },
+  { title: "Event 6", image: "/event/event6.jpg" },
 ];
 
 const videos = [
-  { title: "Video 1", thumbnail: "/thumbnail.jpg", src: "/videogallery1.mp4" },
-  { title: "Video 2", thumbnail: "/thumbnail.jpg", src: "/videogallery4.mp4" },
-  { title: "Video 3", thumbnail: "/thumbnail.jpg", src: "/videogallery3.mp4" },
+  { title: "Video 1", thumbnail: "/thumbnail/thumbnail.jpg", src: "/videos/vid1.mp4" },
+  { title: "Video 2", thumbnail: "/thumbnail/thumbnail.jpg", src: "/videos/vid2.mp4" },
+  { title: "Video 3", thumbnail: "/thumbnail/thumbnail.jpg", src: "/videos/vid3.mp4" },
 ];
 
 const fadeInUp = {
@@ -67,7 +67,7 @@ function Media() {
   return (
     <motion.div className="bg-purple min-h-screen" initial="hidden" animate="visible" variants={staggerContainer}>
       <div className="container mx-auto px-6 md:px-20 py-8">
-        <motion.div className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-5 bg-cover bg-center" style={{ backgroundImage: "url('/mediaimg.jpg')", minHeight: "200px" }} variants={fadeInUp}>
+        <motion.div className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-5 bg-cover bg-center" style={{ backgroundImage: "url('/banner/mediaimg.jpg')", minHeight: "200px" }} variants={fadeInUp}>
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
           <h1 className="relative text-2xl md:text-5xl font-bold text-white mx-auto">Media</h1>
         </motion.div>

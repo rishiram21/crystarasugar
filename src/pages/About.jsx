@@ -144,8 +144,8 @@ function About() {
       <div className="container mx-auto py-8">
         {/* About Us Header */}
         <motion.div
-          className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
-          style={{ backgroundImage: "url('/aboutimg.jpg')" }}
+          className="relative w-full h-36 md:h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
+          style={{ backgroundImage: "url('/banner/aboutimg.jpg')" }}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -291,7 +291,7 @@ function About() {
               "Committed to delivering the finest sugar products.",
               "Dedicated to customer satisfaction and innovation."
             ],
-            "image": "/aboutimg1.jpg",
+            "image": "/about/aboutimg1.jpg",
             "reverse": false
           },
           {
@@ -302,7 +302,7 @@ function About() {
               "Expanded operations to meet international demand.",
               "Continuously evolving with market trends and technologies."
             ],
-            "image": "/aboutimg2.jpg",
+            "image": "/about/aboutimg2.jpg",
             "reverse": true
           },
           {
@@ -316,7 +316,7 @@ function About() {
               "Ethical business",
               "Community engagement"
             ],
-            "image": "/aboutimg3.jpg",
+            "image": "/about/aboutimg3.jpg",
             "reverse": false
           }
         ].map((section, index) => (

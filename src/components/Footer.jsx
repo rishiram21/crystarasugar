@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 
 function Footer() {
   return (
@@ -11,7 +10,7 @@ function Footer() {
 
         {/* Logo & Tagline */}
         <div className="text-center mb-8">
-          <img src="/crlogo.jpg" alt="Crystara Sugar" className="mx-auto w-24 h-auto" />
+          <img src="/crystaralogo.jpg" alt="Crystara Sugar" className="mx-auto w-24 h-auto" />
           <h2 className="text-xl font-semibold mt-2">Crystara Sugar Pvt Ltd</h2>
           <p className="text-sm text-gray-600">
             A Leading Manufacturer Committed to Quality & Sustainability
