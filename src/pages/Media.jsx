@@ -65,8 +65,8 @@ function Media() {
   }, []);
 
   return (
-    <motion.div className="bg-purple min-h-screen" initial="hidden" animate="visible" variants={staggerContainer}>
-      <div className="container mx-auto px-6 md:px-20 py-8">
+    <motion.div className="bg-purple min-h-screen px-4 md:px-20" initial="hidden" animate="visible" variants={staggerContainer}>
+      <div className="container mx-auto py-8">
         <motion.div className="relative w-full h-48 flex items-center rounded-lg shadow-md mb-5 bg-cover bg-center" style={{ backgroundImage: "url('/banner/mediaimg.jpg')", minHeight: "200px" }} variants={fadeInUp}>
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
           <h1 className="relative text-2xl md:text-5xl font-bold text-white mx-auto">Media</h1>

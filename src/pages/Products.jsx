@@ -54,10 +54,7 @@ function Products() {
         "Shelf Life: 24 months",
         "Certification: Organic Certified"
       ]
-    }
-  ];
-
-  const importProducts = [
+    },
     {
       name: "Banana",
       image: "/products/banana.jpg",
@@ -69,6 +66,42 @@ function Products() {
         "Certification: Organic Certified"
       ]
     },
+    {
+      name: "Coming Soon",
+      image: "/products/comingsoon.jpg",
+      description: "",
+      specs: [
+        "Moisture Content: NA",
+        "Packaging: NA",
+        "Shelf Life: NA",
+        "Certification: NA"
+      ]
+    },
+    {
+      name: "Coming Soon",
+      image: "/products/comingsoon.jpg",
+      description: "",
+      specs: [
+        "Moisture Content: NA",
+        "Packaging: NA",
+        "Shelf Life: NA",
+        "Certification: NA"
+      ]
+    },
+    {
+      name: "Coming Soon",
+      image: "/products/comingsoon.jpg",
+      description: "",
+      specs: [
+        "Moisture Content: NA",
+        "Packaging: NA",
+        "Shelf Life: NA",
+        "Certification: NA"
+      ]
+    }
+  ];
+
+  const importProducts = [
     {
       name: "Apple",
       image: "/products/apple.jpg",
@@ -89,6 +122,17 @@ function Products() {
         "Packaging: 500g, 1kg",
         "Shelf Life: 2-3 weeks (refrigerated)",
         "Certification: Organic Certified"
+      ]
+    },
+    {
+      name: "Coming Soon",
+      image: "/products/comingsoon.jpg",
+      description: "",
+      specs: [
+        "Moisture Content: NA",
+        "Packaging: NA",
+        "Shelf Life: NA",
+        "Certification: NA"
       ]
     },
     {
@@ -167,7 +211,7 @@ function Products() {
   );
 
   return (
-    <div className="relative min-h-screen pt-10 pb-12 px-4 md:px-12 bg-cover bg-center" style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}>
+    <div className="relative min-h-screen pt-10 pb-12 px-4 md:px-20 bg-cover bg-center" style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}>
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10">
         {/* Products Header */}
