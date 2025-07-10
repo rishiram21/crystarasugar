@@ -1,26 +1,35 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { ChevronLeft, ChevronRight, X, Package, Globe, Star, Award, Clock, Shield } from "lucide-react";
 
 function Products() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [direction, setDirection] = useState(0);
+  const [activeFilter, setActiveFilter] = useState("all");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Animation configurations
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   const exportProducts = [
     {
       name: "S30 Sugar",
       image: "/products/s30-sugar.jpg",
-      description: "S30 sugar is a medium-grade refined sugar with small, uniform crystals, commonly used in household.",
+      description: "S30 sugar is a medium-grade refined sugar with small, uniform crystals, commonly used in household applications.",
       specs: [
         "Moisture Content: 3.5%",
         "Packaging: 500g, 1kg, 5kg",
         "Shelf Life: 18 months",
         "Certification: Organic Certified"
-      ]
+      ],
+      category: "export",
+      featured: true
     },
     {
       name: "M30 Sugar",
@@ -31,18 +40,22 @@ function Products() {
         "Packaging: 500g, 1kg, 5kg",
         "Shelf Life: 18 months",
         "Certification: Organic Certified"
-      ]
+      ],
+      category: "export",
+      featured: false
     },
     {
       name: "White Refined Sugar",
       image: "/products/white-sugar.jpg",
-      description: "White sugar is a refined sweetener made from sugarcane or sugar beets, commonly used in cooking, and baking.",
+      description: "White sugar is a refined sweetener made from sugarcane or sugar beets, commonly used in cooking and baking.",
       specs: [
         "Purity: 99.8%",
         "Packaging: 1kg, 5kg, 25kg",
         "Shelf Life: 2 years",
         "Certification: FSSAI, ISO 22000"
-      ]
+      ],
+      category: "export",
+      featured: true
     },
     {
       name: "Raw Sugar",
@@ -53,7 +66,9 @@ function Products() {
         "Packaging: 500g, 1kg, 5kg",
         "Shelf Life: 24 months",
         "Certification: Organic Certified"
-      ]
+      ],
+      category: "export",
+      featured: false
     },
     {
       name: "Banana",
@@ -64,40 +79,9 @@ function Products() {
         "Packaging: 500g, 1kg, 5kg",
         "Shelf Life: 7-10 days",
         "Certification: Organic Certified"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/products/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/products/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/products/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
+      ],
+      category: "export",
+      featured: true
     }
   ];
 
@@ -111,7 +95,9 @@ function Products() {
         "Packaging: 1kg, 5kg",
         "Shelf Life: 2-4 weeks (refrigerated)",
         "Certification: Global GAP"
-      ]
+      ],
+      category: "import",
+      featured: true
     },
     {
       name: "Kiwi",
@@ -122,192 +108,281 @@ function Products() {
         "Packaging: 500g, 1kg",
         "Shelf Life: 2-3 weeks (refrigerated)",
         "Certification: Organic Certified"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/products/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
-    },
-    {
-      name: "Coming Soon",
-      image: "/products/comingsoon.jpg",
-      description: "",
-      specs: [
-        "Moisture Content: NA",
-        "Packaging: NA",
-        "Shelf Life: NA",
-        "Certification: NA"
-      ]
+      ],
+      category: "import",
+      featured: false
     }
   ];
 
-  // Combine all products for navigation purposes
   const allProducts = [...exportProducts, ...importProducts];
+
+  const filteredProducts = activeFilter === "all" 
+    ? allProducts 
+    : allProducts.filter(product => product.category === activeFilter);
 
   const handleNavigation = (newDirection) => {
     setDirection(newDirection);
     let currentIndex = allProducts.findIndex(p => p.name === selectedProduct.name);
     let newIndex = (currentIndex + newDirection + allProducts.length) % allProducts.length;
-
-    // Skip "Coming Soon" products
-    while (allProducts[newIndex].name === "Coming Soon") {
-      newIndex = (newIndex + newDirection + allProducts.length) % allProducts.length;
-      if (newIndex === currentIndex) break; // Avoid infinite loop
-    }
-
     setSelectedProduct(allProducts[newIndex]);
   };
 
-  const renderProductGrid = (products, title) => (
-    <div className="mb-16">
-      <h2 className="text-3xl font-bold text-white mb-8 text-left">{title}</h2>
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0, y: 50 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { staggerChildren: 0.2, duration: 0.5 },
-          },
-        }}
-      >
-        {products.map((product, index) => (
-          <motion.div
-            key={index}
-            className="relative bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer group h-64 sm:h-56 md:h-64"
-            whileHover={{ scale: 1.05 }}
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            onClick={() => product.name !== "Coming Soon" && setSelectedProduct(product)}
-          >
-            <div className="w-full h-full overflow-hidden flex items-center justify-center">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-full object-cover transition-all duration-500 group-hover:opacity-50"
-              />
-            </div>
+  const getSpecIcon = (spec) => {
+    if (spec.toLowerCase().includes('moisture') || spec.toLowerCase().includes('purity')) return <Shield className="w-4 h-4" />;
+    if (spec.toLowerCase().includes('packaging')) return <Package className="w-4 h-4" />;
+    if (spec.toLowerCase().includes('shelf') || spec.toLowerCase().includes('life')) return <Clock className="w-4 h-4" />;
+    if (spec.toLowerCase().includes('certification')) return <Award className="w-4 h-4" />;
+    return <Star className="w-4 h-4" />;
+  };
 
-            <h3 className="absolute inset-0 flex items-center justify-center text-xl sm:text-2xl font-bold text-white bg-black bg-opacity-30 group-hover:bg-opacity-50 transition-all duration-500 px-2 text-center">
-              {product.name}
-            </h3>
-          </motion.div>
-        ))}
-      </motion.div>
-    </div>
+  const ProductCard = ({ product, index }) => (
+    <motion.div
+      className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden cursor-pointer group h-80 hover:bg-white/20 transition-all duration-300"
+      whileHover={{ scale: 1.02, y: -5 }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onClick={() => setSelectedProduct(product)}
+    >
+      {/* {product.featured && (
+        <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold z-10">
+          Featured
+        </div>
+      )} */}
+      
+      <div className="relative h-44 overflow-hidden">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      </div>
+
+      <div className="p-6">
+        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-200 transition-colors">
+          {product.name}
+        </h3>
+        <p className="text-purple-100 text-sm line-clamp-2 mb-4">
+          {product.description}
+        </p>
+        
+        <div className="flex items-center justify-between">
+          <span className="text-purple-200 text-xs uppercase tracking-wider">
+            {product.category}
+          </span>
+          <div className="flex items-center text-purple-200">
+            <span className="text-xs mr-1">View Details</span>
+            <ChevronRight className="w-4 h-4" />
+          </div>
+        </div>
+      </div>
+    </motion.div>
   );
 
   return (
-    <div className="relative min-h-screen pt-10 pb-12 px-4 md:px-20 bg-cover bg-center" style={{ backgroundImage: "url('/sugarcane/sugarcane1.jpg')" }}>
-      <div className="absolute inset-0 bg-black opacity-50"></div>
-      <div className="relative z-10">
-        {/* Products Header */}
-        <motion.div
-          className="relative w-full h-36 md:h-48 flex items-center rounded-lg shadow-md mb-10 bg-cover bg-center"
+    <div className="min-h-screen bg-purple-900 px-4 md:px-20">
+      <div className="container mx-auto py-8">
+      {/* Hero Section */}
+      <motion.div
+          className="relative w-full h-36 md:h-48 flex items-center rounded-lg shadow-md mb-2 bg-cover bg-center"
           style={{ backgroundImage: "url('/banner/productimg.jpg')" }}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
+          initial="hidden"
+          animate="visible"
+          variants={fadeIn}
         >
           <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
-          <div className="relative w-full flex flex-col items-center p-4 md:p-8 text-center">
-            <h1 className="text-2xl md:text-5xl font-bold text-white">Our Products</h1>
-            <p className="text-white mt-2">Quality exports and imported goods to meet your needs</p>
+          <div className="relative w-full flex flex-col items-center p-8 text-center">
+            <h1 className="text-xl md:text-5xl font-bold text-white">Our Products</h1>
+            {/* <p className="text-white mt-2">Sweetening Lives Since 2017</p> */}
           </div>
         </motion.div>
 
-        {/* Export Products Section */}
-        {renderProductGrid(exportProducts, "Our Exports")}
-
-        {/* Import Products Section */}
-        {renderProductGrid(importProducts, "Our Imports")}
-
-        {/* Product Detail Overlay */}
-        <AnimatePresence>
-          {selectedProduct && (
-            <motion.div
-              className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 overflow-y-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={(e) => {
-                if (e.target === e.currentTarget) {
-                  setSelectedProduct(null);
-                }
-              }}
-            >
-              <motion.div
-                key={selectedProduct.name}
-                className="bg-white rounded-xl max-w-2xl w-full p-4 md:p-8 relative my-8 md:my-0"
-                initial={{ x: direction === 1 ? 100 : -100, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: direction === 1 ? -100 : 100, opacity: 0 }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                onClick={(e) => e.stopPropagation()}
+      <div className="container mx-auto px-4 py-16">
+        {/* Filter Tabs */}
+        <motion.div
+          className="flex justify-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full p-2 flex space-x-2">
+            {[
+              { key: "all", label: "All Products", icon: <Globe className="w-4 h-4" /> },
+              { key: "export", label: "Exports", icon: <Package className="w-4 h-4" /> },
+              { key: "import", label: "Imports", icon: <Package className="w-4 h-4" /> }
+            ].map((filter) => (
+              <button
+                key={filter.key}
+                onClick={() => setActiveFilter(filter.key)}
+                className={`flex items-center space-x-2 px-6 py-3 rounded-full transition-all ${
+                  activeFilter === filter.key
+                    ? "bg-white text-purple-700 shadow-lg"
+                    : "text-white hover:bg-white/20"
+                }`}
               >
-                <button
-                  className="absolute top-2 right-2 md:top-4 md:right-4 text-2xl text-gray-600 z-10 bg-white rounded-full w-8 h-8 flex items-center justify-center"
-                  onClick={() => setSelectedProduct(null)}
-                >
-                  &times;
-                </button>
+                {filter.icon}
+                <span className="font-medium">{filter.label}</span>
+              </button>
+            ))}
+          </div>
+        </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-                  <div className="w-full h-48 md:h-64 overflow-hidden flex items-center justify-center">
-                    <img
-                      src={selectedProduct.image}
-                      alt={selectedProduct.name}
-                      className="w-full h-full object-cover rounded-lg"
-                    />
+        {/* Products Grid */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          layout
+        >
+          <AnimatePresence mode="wait">
+            {filteredProducts.map((product, index) => (
+              <ProductCard key={product.name} product={product} index={index} />
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Stats Section */}
+        <motion.div
+          className="mt-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 md:p-12"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+        >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-white mb-2">{allProducts.length}+</div>
+              <div className="text-purple-200">Products</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-white mb-2">50+</div>
+              <div className="text-purple-200">Countries</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-white mb-2">99.9%</div>
+              <div className="text-purple-200">Quality</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-white mb-2">24/7</div>
+              <div className="text-purple-200">Support</div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Product Detail Modal */}
+      <AnimatePresence>
+        {selectedProduct && (
+          <motion.div
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setSelectedProduct(null);
+              }
+            }}
+          >
+            <motion.div
+              key={selectedProduct.name}
+              className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 bg-gray-100 hover:bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center transition-colors z-10"
+                onClick={() => setSelectedProduct(null)}
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="p-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  <div className="space-y-6">
+                    <div className="relative h-80 rounded-2xl overflow-hidden">
+                      <img
+                        src={selectedProduct.image}
+                        alt={selectedProduct.name}
+                        className="w-full h-full object-cover"
+                      />
+                      {selectedProduct.featured && (
+                        <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                          Featured Product
+                        </div>
+                      )}
+                    </div>
                   </div>
 
-                  <div>
-                    <h2 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4">{selectedProduct.name}</h2>
-                    <p className="text-gray-600 mb-2 md:mb-4 text-sm md:text-base">{selectedProduct.description}</p>
+                  <div className="space-y-6">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium uppercase">
+                          {selectedProduct.category}
+                        </span>
+                      </div>
+                      <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                        {selectedProduct.name}
+                      </h2>
+                      <p className="text-gray-600 text-lg leading-relaxed">
+                        {selectedProduct.description}
+                      </p>
+                    </div>
 
-                    <div className="space-y-1 md:space-y-2">
-                      <h4 className="font-bold text-sm md:text-base">Specifications:</h4>
-                      <ul className="list-disc pl-5 md:pl-6 text-sm md:text-base">
+                    <div className="space-y-4">
+                      <h4 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+                        <Package className="w-5 h-5 text-purple-600" />
+                        Specifications
+                      </h4>
+                      <div className="space-y-3">
                         {selectedProduct.specs.map((spec, i) => (
-                          <li key={i} className="text-gray-600">{spec}</li>
+                          <div key={i} className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+                            <div className="text-purple-600">
+                              {getSpecIcon(spec)}
+                            </div>
+                            <span className="text-gray-700 font-medium">{spec}</span>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex justify-between mt-4 md:mt-6">
+                <div className="flex flex-col sm:flex-row justify-between items-center mt-8 pt-6 border-t border-gray-200 gap-4">
                   <button
-                    className="text-purple-700 flex items-center text-sm md:text-base"
+                    className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium transition-colors"
                     onClick={() => handleNavigation(-1)}
                   >
-                    <FaChevronLeft className="mr-1 md:mr-2" /> Previous
+                    <ChevronLeft className="w-5 h-5" />
+                    Previous Product
                   </button>
+                  
+                  <div className="flex gap-3">
+                    <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors">
+                      Request Quote
+                    </button>
+                    <button className="border border-purple-600 text-purple-600 px-6 py-3 rounded-full font-semibold hover:bg-purple-50 transition-colors">
+                      Contact Us
+                    </button>
+                  </div>
+                  
                   <button
-                    className="text-purple-700 flex items-center text-sm md:text-base"
+                    className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium transition-colors"
                     onClick={() => handleNavigation(1)}
                   >
-                    Next <FaChevronRight className="ml-1 md:ml-2" />
+                    Next Product
+                    <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
-              </motion.div>
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </motion.div>
+          
+        )}
+        
+      </AnimatePresence>
+    </div>
     </div>
   );
 }

@@ -22,7 +22,7 @@ function CompanyOverview() {
   };
 
   return (
-    <div className="min-h-screen bg-purple-50 px-4 md:px-20">
+    <div className="min-h-screen bg-purple-900 px-4 md:px-20">
       <div className="container mx-auto py-8">
 
         {/* Hero Section */}
@@ -49,13 +49,13 @@ function CompanyOverview() {
         >
           {/* About Section */}
           <motion.div variants={fadeIn} className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold text-purple-700">Our Story</h2>
-            <p className="text-gray-600 leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">Our Story</h2>
+            <p className="text-white leading-relaxed">
               Crystara Sugar Pvt Ltd has been a cornerstone of the sugar industry for nearly three decades.
               Founded with a vision to revolutionize sweetener production, we've grown from a modest local
               operation to a nationally recognized leader in sugar manufacturing and distribution.
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-white leading-relaxed">
               Our commitment to sustainable practices and technological innovation has allowed us to
               consistently deliver premium quality products while maintaining environmental stewardship
               and community development at our core.

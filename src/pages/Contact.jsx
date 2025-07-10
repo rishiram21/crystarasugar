@@ -5,6 +5,7 @@ import emailjs from 'emailjs-com';
 function Contact() {
   useEffect(() => {
     window.scrollTo(0, 0);
+    generateCaptcha();
   }, []);
 
   const [formData, setFormData] = useState({
@@ -16,6 +17,71 @@ function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [captchaText, setCaptchaText] = useState("");
+  const [captchaInput, setCaptchaInput] = useState("");
+
+  const generateCaptcha = () => {
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    let captcha = "";
+    for (let i = 0; i < 6; i++) {
+      captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    setCaptchaText(captcha);
+  };
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleCaptchaChange = (e) => {
+    setCaptchaInput(e.target.value);
+  };
+
+  const verifyCaptcha = () => {
+    return captchaInput === captchaText;
+  };
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    if (!verifyCaptcha()) {
+      setSubmitStatus("captcha_required");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const result = await emailjs.sendForm(
+        'service_pwh5hlz',
+        'template_a90cvvs',
+        e.target,
+        'AQFSow30xoc57dbTu'
+      );
+      console.log(result.text);
+      setSubmitStatus("success");
+      setIsSubmitting(false);
+
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+        setCaptchaInput("");
+        setSubmitStatus(null);
+        generateCaptcha();
+      }, 3000);
+    } catch (error) {
+      console.log(error.text);
+      setSubmitStatus("error");
+      setIsSubmitting(false);
+    }
+  };
 
   // Enhanced animation configurations
   const containerVariants = {
@@ -53,45 +119,9 @@ function Contact() {
     disabled: { opacity: 0.7, scale: 1 }
   };
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // For security reasons, consider using environment variables for these values
-    emailjs.sendForm('service_pwh5hlz', 'template_a90cvvs', e.target, 'AQFSow30xoc57dbTu')
-      .then((result) => {
-          console.log(result.text);
-          setSubmitStatus("success");
-          setIsSubmitting(false);
-
-          // Reset form after success
-          setTimeout(() => {
-            setFormData({
-              name: "",
-              email: "",
-              subject: "",
-              message: ""
-            });
-            setSubmitStatus(null);
-          }, 3000);
-      }, (error) => {
-          console.log(error.text);
-          setSubmitStatus("error");
-          setIsSubmitting(false);
-      });
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white px-4 md:px-20">
+    <div className="min-h-screen bg-purple-300 px-4 md:px-20">
       <div className="container mx-auto py-8">
-
         {/* Hero Section */}
         <motion.div
           className="relative w-full h-48 flex items-center rounded-xl shadow-lg mb-12 bg-cover bg-center overflow-hidden"
@@ -120,7 +150,6 @@ function Contact() {
             </motion.p>
           </div>
         </motion.div>
-
         {/* Main Content */}
         <div className="grid lg:grid-cols-12 gap-12">
           {/* Contact Info Section */}
@@ -131,12 +160,11 @@ function Contact() {
             animate="visible"
           >
             <motion.h2
-              className="text-2xl md:text-3xl font-bold text-purple-800 mb-8"
+              className="text-2xl md:text-3xl font-bold text-white mb-8"
               variants={itemVariants}
             >
               Our Office
             </motion.h2>
-
             <motion.div
               className="space-y-6"
               variants={containerVariants}
@@ -158,7 +186,8 @@ function Contact() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                     </svg>
-                    <span>845, Gear's Imperium Rise, Biotech Park, Hinjewadi, Pune 411 057</span>
+                    <span>845, Gear's Imperium Rise, Biotech Park, Hinjewadi,</span>
+                    <span> Pune 411 057</span>
                   </p>
                   <p className="flex items-start">
                     <svg className="w-5 h-5 mr-3 text-purple-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -175,15 +204,13 @@ function Contact() {
                 </div>
               </motion.div>
             </motion.div>
-
             {/* Map Section */}
             <motion.div
               className="mt-10"
               variants={itemVariants}
             >
-              <h3 className="text-xl font-bold text-gray-700 mb-4">Our Locations</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Our Locations</h3>
               <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-                {/* Updated Map to match Pune location */}
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.802870520542!2d73.73652637489793!3d18.58963248262115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b90ea4e01deb%3A0x29a2e5adb31a8315!2sHinjawadi%20Phase%201%2C%20Hinjawadi%2C%20Pimpri-Chinchwad%2C%20Maharashtra%20411057!5e0!3m2!1sen!2sin!4v1712415647798!5m2!1sen!2sin"
                   width="100%"
@@ -197,7 +224,6 @@ function Contact() {
               </div>
             </motion.div>
           </motion.div>
-
           {/* Contact Form Section */}
           <motion.div
             className="lg:col-span-7"
@@ -214,7 +240,6 @@ function Contact() {
               >
                 Send Us a Message
               </motion.h2>
-
               {submitStatus === "success" ? (
                 <motion.div
                   className="bg-green-50 border-l-4 border-green-500 p-4 rounded-md"
@@ -255,7 +280,28 @@ function Contact() {
                     </div>
                   </div>
                 </motion.div>
-              ) : (
+              ) : submitStatus === "captcha_required" ? (
+                <motion.div
+                  className="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-md mb-6"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <div className="flex">
+                    <div className="flex-shrink-0">
+                      <svg className="h-5 w-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                      </svg>
+                    </div>
+                    <div className="ml-3">
+                      <p className="text-sm text-yellow-700">
+                        Please complete the CAPTCHA verification to send your message.
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ) : null}
+              {(submitStatus !== "success") && (
                 <motion.form
                   onSubmit={sendEmail}
                   className="space-y-5"
@@ -283,7 +329,6 @@ function Contact() {
                         />
                       </div>
                     </motion.div>
-
                     <motion.div variants={itemVariants}>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
                       <div className="relative">
@@ -304,7 +349,6 @@ function Contact() {
                       </div>
                     </motion.div>
                   </motion.div>
-
                   <motion.div variants={itemVariants}>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
                     <div className="relative">
@@ -324,7 +368,6 @@ function Contact() {
                       />
                     </div>
                   </motion.div>
-
                   <motion.div variants={itemVariants}>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
                     <textarea
@@ -337,12 +380,39 @@ function Contact() {
                       placeholder="Please describe your question or request in detail..."
                     ></textarea>
                   </motion.div>
-
+                  {/* Static CAPTCHA */}
+                  <motion.div variants={itemVariants}>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">CAPTCHA Verification</label>
+                    <div className="flex items-center space-x-4">
+                      <div className="bg-gray-200 p-2 rounded font-bold text-lg text-gray-700">{captchaText}</div>
+                      <button
+                        type="button"
+                        onClick={generateCaptcha}
+                        className="text-purple-600 hover:text-purple-800"
+                      >
+                        <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                      </button>
+                      <input
+                        type="text"
+                        value={captchaInput}
+                        onChange={handleCaptchaChange}
+                        required
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+                        placeholder="Enter the CAPTCHA text"
+                      />
+                    </div>
+                  </motion.div>
                   <motion.div variants={itemVariants} className="flex justify-end">
                     <motion.button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`flex items-center justify-center py-2 px-6 rounded-lg text-white font-medium ${isSubmitting ? 'bg-purple-400' : 'bg-purple-600 hover:bg-purple-700'} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors`}
+                      className={`flex items-center justify-center py-2 px-6 rounded-lg text-white font-medium ${
+                        isSubmitting
+                          ? 'bg-purple-400 cursor-not-allowed'
+                          : 'bg-purple-600 hover:bg-purple-700'
+                      } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-colors`}
                       whileHover={isSubmitting ? {} : buttonVariants.hover}
                       whileTap={isSubmitting ? {} : buttonVariants.tap}
                       animate={isSubmitting ? "disabled" : ""}
