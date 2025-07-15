@@ -18,58 +18,123 @@ function Products() {
   };
 
   const exportProducts = [
-    {
-      name: "S30 Sugar",
-      image: "/products/s30-sugar.jpg",
-      description: "S30 sugar is a medium-grade refined sugar with small, uniform crystals, commonly used in household applications.",
-      specs: [
-        "Moisture Content: 3.5%",
-        "Packaging: 500g, 1kg, 5kg",
-        "Shelf Life: 18 months",
-        "Certification: Organic Certified"
-      ],
-      category: "export",
-      featured: true
-    },
-    {
-      name: "M30 Sugar",
-      image: "/products/m30-sugar.jpg",
-      description: "M30 sugar is a refined white sugar with medium-sized crystals, commonly used in household and industrial applications.",
-      specs: [
-        "Moisture Content: 3.5%",
-        "Packaging: 500g, 1kg, 5kg",
-        "Shelf Life: 18 months",
-        "Certification: Organic Certified"
-      ],
-      category: "export",
-      featured: false
-    },
-    {
-      name: "White Refined Sugar",
-      image: "/products/white-sugar.jpg",
-      description: "White sugar is a refined sweetener made from sugarcane or sugar beets, commonly used in cooking and baking.",
-      specs: [
-        "Purity: 99.8%",
-        "Packaging: 1kg, 5kg, 25kg",
-        "Shelf Life: 2 years",
-        "Certification: FSSAI, ISO 22000"
-      ],
-      category: "export",
-      featured: true
-    },
-    {
-      name: "Raw Sugar",
-      image: "/products/raw-sugar.jpg",
-      description: "Raw sugar is a minimally processed sugar derived from sugarcane, retaining some molasses for a golden hue.",
-      specs: [
-        "Moisture Content: Varies",
-        "Packaging: 500g, 1kg, 5kg",
-        "Shelf Life: 24 months",
-        "Certification: Organic Certified"
-      ],
-      category: "export",
-      featured: false
-    },
+  {
+    name: "S30 Sugar",
+    image: "/products/s30-sugar.jpg",
+    description: "S30 white refined sugar is a medium-grade granular sugar with crystal size of 0.8 to 1.2mm, ideal for daily use and table consumption.",
+    specs: [
+      "ICUMSA: 80–150",
+      "Color: Sparkling White / Crystal White",
+      "Crystal Size: 0.8 – 1.2mm",
+      "Form: Granular",
+      "Moisture: 0.4% – 0.6%",
+      "Solubility: 100% dry free fine flowing",
+      "Polarization: 99.80% min",
+      "Ash: 0.04% – 0.6%",
+      "Reducing Sugar: 0.05% max",
+      "Radiation: Within international limit",
+      "SO2: 70mg/kg",
+      "Smell: Fresh",
+      "Purity: 99.9%",
+      "Shelf Life: 2–3 Years",
+      "Processing Type: Refined",
+      "Primary Ingredient: Cane Sugar",
+      "Supply Ability: 50,000 MT/week",
+      "Minimum Order: 1000 MT",
+      "Country of Origin: India"
+    ],
+    category: "export",
+    featured: true
+  },
+  {
+    name: "M30 Sugar",
+    image: "/products/m30-sugar.jpg",
+    description: "M30 white refined sugar is a high-quality granular sugar with larger crystal size (1.4 to 1.7mm), suitable for both household and industrial applications.",
+    specs: [
+      "ICUMSA: 80–150",
+      "Color: Sparkling White / Crystal White",
+      "Crystal Size: 1.4 – 1.7mm",
+      "Form: Granular",
+      "Moisture: 0.4% – 0.6%",
+      "Solubility: 100% dry free fine flowing",
+      "Polarization: 99.80% min",
+      "Ash: 0.04% – 0.6%",
+      "Reducing Sugar: 0.05% max",
+      "Radiation: Within international limit",
+      "SO2: 70mg/kg",
+      "Smell: Fresh",
+      "Purity: 99.9%",
+      "Shelf Life: 2–3 Years",
+      "Processing Type: Refined",
+      "Primary Ingredient: Cane Sugar",
+      "Supply Ability: 50,000 MT/week",
+      "Minimum Order: 1000 MT",
+      "Country of Origin: India"
+    ],
+    category: "export",
+    featured: false
+  },
+  {
+    name: "ICUMSA 45 Sugar",
+    image: "/products/white-sugar.jpg",
+    description: "ICUMSA 45 is a premium refined white sugar with superior purity and brightness, widely used in the food and beverage industry.",
+    specs: [
+      "ICUMSA: 45",
+      "Color: Sparkling White / Crystal White",
+      "Crystal Size: 0.8 – 1.2mm",
+      "Form: Granular",
+      "Moisture: 0.4% – 0.6%",
+      "Solubility: 100% dry free fine flowing",
+      "Polarization: 99.80% min",
+      "Ash: 0.04% – 0.6%",
+      "Reducing Sugar: 0.05% max",
+      "Radiation: Within international limit",
+      "SO2: 70mg/kg",
+      "Smell: Fresh",
+      "Purity: 99.9%",
+      "Shelf Life: 2–3 Years",
+      "Processing Type: Refined",
+      "Primary Ingredient: Cane Sugar",
+      "Supply Ability: 50,000 MT/week",
+      "Minimum Order: 1000 MT",
+      "Country of Origin: India"
+    ],
+    category: "export",
+    featured: true
+  },
+  {
+    name: "Raw Sugar",
+    image: "/products/raw-sugar.jpg",
+    description: "Indian Raw Sugar is semi-processed brown sugar with high molasses content, widely used in industrial applications and traditional cooking.",
+    specs: [
+      "ICUMSA: 600–1200",
+      "Color: Brown",
+      "Polarization: 96.00% Min (up to 99.20%)",
+      "Ash Content: 0.15% Max",
+      "Crystal Size: ~0.6mm",
+      "Form: Small Crystal",
+      "Moisture: 0.15% Max",
+      "Solubility: 90% free flowing",
+      "Granulation: Fine",
+      "SO2: 20 PPM",
+      "Smell: Fresh",
+      "Reducing Sugar: 0.05% max",
+      "Magnetic Particles: 10mg/kg",
+      "AS: 1 PPM | PS: 2 PPM | CU: 3 PPM",
+      "HPN staph aureus: Nil",
+      "Free from mold, unnatural odors, insects",
+      "Radiation: Within acceptable limits",
+      "Phytosanitary Certified",
+      "Shelf Life: 2–3 Years",
+      "Processing Type: Raw",
+      "Primary Ingredient: Cane Sugar",
+      "Supply Ability: 50,000 MT/week",
+      "Minimum Order: 1000 MT",
+      "Country of Origin: India"
+    ],
+    category: "export",
+    featured: false
+  },
     {
       name: "G9 Cavendish Banana",
       image: "/products/banana.jpg",
