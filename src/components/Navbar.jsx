@@ -57,7 +57,7 @@ function Navbar() {
             
             {/* Social Links */}
             <div className="flex items-center space-x-3">
-              <a href="https://www.facebook.com/profile.php?id=61575039993423" target="_blank" className="text-gray-600 hover:text-purple-700 transition-colors">
+              <a href="https://www.facebook.com/share/176SXJZXF6/" target="_blank" className="text-gray-600 hover:text-purple-700 transition-colors">
                 <FaFacebook size={16} />
               </a>
               {/* <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600">

@@ -140,7 +140,7 @@ function About() {
   }, []);
 
   return (
-    <div className="bg-purple-300 min-h-screen px-4 md:px-20">
+    <div className="bg-purple-100 min-h-screen px-4 md:px-20">
       <div className="container mx-auto py-8">
         {/* About Us Header */}
         <motion.div

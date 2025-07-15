@@ -71,14 +71,18 @@ function Products() {
       featured: false
     },
     {
-      name: "Banana",
+      name: "G9 Cavendish Banana",
       image: "/products/banana.jpg",
-      description: "Fresh bananas are a rich source of essential nutrients, offering a naturally sweet taste and creamy texture.",
+      description: "Rich in Vitamin B6 and Vitamin C- helps to reduce your fatigue and provides instant energy Bananas are rich in fiber and potassium. Eating a banana in the morning prevents acidity. It also helps in generating happy hormone and serves as the brain tonic.",
       specs: [
-        "Moisture Content: 74-79%",
-        "Packaging: 500g, 1kg, 5kg",
-        "Shelf Life: 7-10 days",
-        "Certification: Organic Certified"
+        "Origin of Banana: Tembhurni, Jalgaon, Chalisgaon, Barwani, Raver",
+        "Packaging: Corrugated Top Bottom - Premium, Vacuum Bag with foam separators",
+        "Gross Weight 14.5 kg For Iran & Saudi Arabia, 14  kg for Dubai and Iraq",
+        "Net Weight 13.5 kg For Iran & Saudi Arabia, 13 kg for Dubai and Iraq",
+        "Recyclable: Yes",
+        "Units per carton: 4 / 5 / 6 / 8 / Clusters",
+        "Number of fingers per hand Minimum 12",
+        "Calibration: 39 - 46",
       ],
       category: "export",
       featured: true
@@ -307,11 +311,11 @@ function Products() {
                         alt={selectedProduct.name}
                         className="w-full h-full object-cover"
                       />
-                      {selectedProduct.featured && (
+                      {/* {selectedProduct.featured && (
                         <div className="absolute top-4 left-4 bg-gradient-to-r from-purple-400 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                           Featured Product
                         </div>
-                      )}
+                      )} */}
                     </div>
                   </div>
 
@@ -358,7 +362,7 @@ function Products() {
                     Previous Product
                   </button>
                   
-                  <div className="flex gap-3">
+                  {/* <div className="flex gap-3">
                     <button className="bg-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors">
                       Request Quote
                     </button>
@@ -366,7 +370,7 @@ function Products() {
                       Contact Us
                     </button>
                   </div>
-                  
+                   */}
                   <button
                     className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-medium transition-colors"
                     onClick={() => handleNavigation(1)}

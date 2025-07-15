@@ -120,7 +120,7 @@ function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-purple-300 px-4 md:px-20">
+    <div className="min-h-screen bg-purple-100 px-4 md:px-20">
       <div className="container mx-auto py-8">
         {/* Hero Section */}
         <motion.div
@@ -160,7 +160,7 @@ function Contact() {
             animate="visible"
           >
             <motion.h2
-              className="text-2xl md:text-3xl font-bold text-white mb-8"
+              className="text-2xl md:text-3xl font-bold text-purple-900 mb-8"
               variants={itemVariants}
             >
               Our Office
@@ -209,7 +209,7 @@ function Contact() {
               className="mt-10"
               variants={itemVariants}
             >
-              <h3 className="text-xl font-bold text-white mb-4">Our Locations</h3>
+              <h3 className="text-xl font-bold text-purple-900 mb-4">Our Locations</h3>
               <div className="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.802870520542!2d73.73652637489793!3d18.58963248262115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b90ea4e01deb%3A0x29a2e5adb31a8315!2sHinjawadi%20Phase%201%2C%20Hinjawadi%2C%20Pimpri-Chinchwad%2C%20Maharashtra%20411057!5e0!3m2!1sen!2sin!4v1712415647798!5m2!1sen!2sin"
