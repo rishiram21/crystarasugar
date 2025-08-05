@@ -187,13 +187,13 @@ const testimonials = [
     company: "Fazl Azarbayjan",
     image: "/testimonial/person4.jpg",
   },
-  {
-    text: "Opting for Crystara is an investment in both your business and a better future—highly recommended!",
-    author: "Mr. Ali",
-    designation: "Director",
-    company: "Exim Asian International Trading Group",
-    image: "/testimonial/person5.jpg",
-  },
+  // {
+  //   text: "Opting for Crystara is an investment in both your business and a better future—highly recommended!",
+  //   author: "Mr. Ali",
+  //   designation: "Director",
+  //   company: "Exim Asian International Trading Group",
+  //   image: "/testimonial/person5.jpg",
+  // },
 ];
 
   const settings = {
